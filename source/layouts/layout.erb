@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <% if current_page.data.key?('meta') %>
+      <% current_page.data.meta.each do |meta| %>
+        <meta
+          <% meta.each do |key, value| %>
+            <%= "#{key}=\"#{value}\"" %>
+          <% end %>
+        >
+      <% end %>
+    <% end %>
+    <!-- Use the title from a page's frontmatter if it has one -->
+    <title><%= current_page.data.title || "ScrumMD" %></title>
+    <%= stylesheet_link_tag "site" %>
+    <%= javascript_include_tag "site" %>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>
