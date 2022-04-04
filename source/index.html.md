@@ -1,8 +1,8 @@
 ---
 title: ScrumMD
 
-includes:
-  - errors
+tickets:
+  - TIC-001
 
 meta:
   - name: description
@@ -11,3 +11,10 @@ meta:
 # Scrummd
 
 tada !
+
+
+toto [[TIC-001]] tutu
+
+toto [[TIC-001]] tutu
+
+toto [[TIC-001]] tutu

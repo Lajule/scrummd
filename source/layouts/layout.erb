@@ -1,3 +1,13 @@
+<% page_content = yield %>
+<%
+  if current_page.data.tickets
+  current_page.data.tickets.each do |ticket|
+      ticket_content = partial("tickets/#{ticket}")
+      page_content = page_content.gsub("[[#{ticket}]]", "<div class=\"ticket\">#{ticket_content}</div>")
+    end
+  end
+%>
+
 <!doctype html>
 <html>
   <head>
@@ -20,6 +30,6 @@
     <%= javascript_include_tag "site" %>
   </head>
   <body>
-    <%= yield %>
+    <%= page_content %>
   </body>
 </html>

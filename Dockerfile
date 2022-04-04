@@ -1,4 +1,3 @@
-
 FROM ruby:2.6-slim
 
 WORKDIR /srv/scrummd
@@ -23,5 +22,7 @@ RUN apt-get update \
 
 COPY . /srv/scrummd
 
-ENTRYPOINT ["middleman"]
+RUN chmod +x /srv/scrummd/scrummd.sh
+
+ENTRYPOINT ["/srv/scrummd/scrummd.sh"]
 CMD ["build"]
