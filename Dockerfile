@@ -8,6 +8,7 @@ VOLUME /srv/scrummd/source
 EXPOSE 4567
 
 COPY Gemfile .
+COPY Gemfile.lock .
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \

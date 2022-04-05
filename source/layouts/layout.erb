@@ -3,7 +3,7 @@
   if current_page.data.tickets
     current_page.data.tickets.each do |ticket|
       ticket_content = partial("tickets/#{ticket}")
-      page_content = page_content.gsub("#{ticket}", "<div class=\"ticket\">#{ticket_content}</div>")
+      page_content = page_content.gsub("#{ticket}", "<div class=\"ticket\" data-ticket=\"#{ticket}\">#{ticket_content}</div>")
     end
   end
 %>

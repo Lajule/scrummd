@@ -13,6 +13,8 @@ set :markdown,
     with_toc_data: true,
     no_intra_emphasis: true
 
+activate :sprockets
+
 activate :autoprefixer do |prefix|
   prefix.browsers = "last 2 versions"
 end
@@ -52,7 +54,8 @@ page '/*.txt', layout: false
 # Build-specific configuration
 # https://middlemanapp.com/advanced/configuration/#environment-specific-settings
 
-# configure :build do
-#   activate :minify_css
-#   activate :minify_javascript
-# end
+# Build Configuration
+configure :build do
+  activate :minify_css
+  activate :minify_javascript
+end
