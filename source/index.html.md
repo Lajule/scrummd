@@ -3,18 +3,14 @@ title: ScrumMD
 
 tickets:
   - TIC-001
-
-meta:
-  - name: description
-    content: Documentation for the Kittn API
 ---
-# Scrummd
+# This is the sprint name
 
-tada !
-
-
-toto [[TIC-001]] tutu
-
-toto [[TIC-001]] tutu
-
-toto [[TIC-001]] tutu
+TO DO    | DOCUMENTATION | DEVELOPEMENT | BLOCKED / WAITING QA | REVIEW  | DONE
+-------- | ------------- | ------------ | -------------------- | ------- | ----
+ TIC-001 |               |              |                      |         |
+         |               |    TIC-001   |                      |         |
+ TIC-001 |               |              |                      |         |
+         |               |              |       TIC-001        |         |
+         |               |              |                      |         | TIC-001
+         |               |              |                      | TIC-001 |
