@@ -4,7 +4,7 @@
 
 html, body {
   color: $main-text;
-  padding: 0;
+  padding: 1em;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -12,4 +12,12 @@ html, body {
   background-color: $main-bg;
   height: 100%;
   -webkit-text-size-adjust: none;
+}
+
+table {
+  overflow: auto;
+
+  th, td {
+    border: 1px solid #ccc;
+  }
 }
