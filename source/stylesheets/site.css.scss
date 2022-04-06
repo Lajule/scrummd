@@ -11,5 +11,5 @@ html, body {
   @extend %default-font;
   background-color: $main-bg;
   height: 100%;
-  -webkit-text-size-adjust: none; /* Never autoresize text */
+  -webkit-text-size-adjust: none;
 }

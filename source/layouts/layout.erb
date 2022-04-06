@@ -26,6 +26,9 @@
     <% end %>
     <!-- Use the title from a page's frontmatter if it has one -->
     <title><%= current_page.data.title || "ScrumMD" %></title>
+    <style>
+      <%= Rouge::Themes::Base16::Solarized.render(:scope => '.highlight') %>
+    </style>
     <%= stylesheet_link_tag "site" %>
     <%= javascript_include_tag "site" %>
   </head>

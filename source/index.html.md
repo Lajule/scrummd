@@ -1,10 +1,10 @@
 ---
-title: ScrumMD
-
 tickets:
   - TIC-001
 ---
-# This is the sprint name
+# Sprint name goes here
+
+Add sprint description here.
 
 TO DO    | DOCUMENTATION | DEVELOPEMENT | BLOCKED / WAITING QA | REVIEW  | DONE
 -------- | ------------- | ------------ | -------------------- | ------- | ----
