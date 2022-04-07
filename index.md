@@ -1,6 +1,5 @@
 ---
 layout: sprint
-title: "Sprint"
 from: "2022-12-17"
 to: "2022-12-31"
 tickets:

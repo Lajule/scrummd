@@ -1,6 +1,5 @@
 ---
 layout: backlog
-title: "Backlog"
 tickets:
   - TIC-001
   - TIC-001

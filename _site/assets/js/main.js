@@ -3,25 +3,29 @@ window.addEventListener('DOMContentLoaded', function (event) {
     function getValue(list, re, defaultValue) {
 	    for (const e of list) {
             const groups = re.exec(e.textContent);
-
             if (groups) {
                 return groups[1];
             }
 	    }
-
 	    return defaultValue;
     }
 
-    const velocity = getValue(document.querySelectorAll('p'), /Velocity: (\d+)/i, 0);
-    const from = new Date(getValue(document.querySelectorAll('p'), /From: ([0-9-]+)/i, 0));
-    const to = new Date(getValue(document.querySelectorAll('p'), /To: ([0-9-]+)/i, 0));
+    const sprint = document.querySelector('.sprint');
+    const from = new Date(sprint.dataset.from);
+    const to = new Date(sprint.dataset.to);
+
     const tickets = Array.from(document.querySelectorAll('.ticket')).map((ticket) => {
 	    const ref = ticket.dataset.ref;
+        const status = ticket.dataset.status;
+
 	    const h1 = ticket.querySelector('h1');
     	const title = h1 ? h1.textContent : "";
-    	const storyPoints = getValue(ticket.querySelectorAll('p'), /Story points: (\d+)/i, 0);
-    	const assignee = getValue(ticket.querySelectorAll('p'), /Assignee: ([A-Za-z0-9_]+)/i, "");
-    	return {ref, title, storyPoints, assignee};
+
+        const pList = ticket.querySelectorAll('p');
+    	const storyPoints = getValue(pList, /Story points: (\d+)/i, 0);
+    	const assignee = getValue(pList, /Assignee: ([A-Za-z0-9_]+)/i, "");
+
+    	return {ref, status, title, storyPoints, assignee};
     });
 
     const canvas = document.getElementById('brundown-chart');
