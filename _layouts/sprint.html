@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
+  </head>
+  <body>
+    <div class="sprint">
+      {{ content }}
+      <div class="board">
+        <table>
+          <thead>
+            <tr>
+              <th>TO DO</th>
+              <th>DOCUMENTATION</th>
+              <th>DEVELOPEMENT</th>
+              <th>BLOCKED / WAITING QA</th>
+              <th>REVIEW</th>
+              <th>DONE</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for ticket in page.tickets %}
+            {% capture ticket_markdown_content %}{% include tickets/{{ ticket.ref }}.md %}{% endcapture %}
+            <tr>
+              {% if ticket.status == "TO DO" %}
+              <td class="ticket" data-ref="{{ ticket.ref }}" data-status="{{ ticket.status }}">{{ticket_markdown_content | markdownify }}</td>
+              {% else %}
+              <td></td>
+              {% endif %}
+              {% if ticket.status == "DOCUMENTATION" %}
+              <td class="ticket" data-ref="{{ ticket.ref }}" data-status="{{ ticket.status }}">{{ticket_markdown_content | markdownify }}</td>
+              {% else %}
+              <td></td>
+              {% endif %}
+              {% if ticket.status == "DEVELOPEMENT" %}
+              <td class="ticket" data-ref="{{ ticket.ref }}" data-status="{{ ticket.status }}">{{ticket_markdown_content | markdownify }}</td>
+              {% else %}
+              <td></td>
+              {% endif %}
+              {% if ticket.status == "BLOCKED / WAITING QA" %}
+              <td class="ticket" data-ref="{{ ticket.ref }}" data-status="{{ ticket.status }}">{{ticket_markdown_content | markdownify }}</td>
+              {% else %}
+              <td></td>
+              {% endif %}
+              {% if ticket.status == "REVIEW" %}
+              <td class="ticket" data-ref="{{ ticket.ref }}" data-status="{{ ticket.status }}">{{ticket_markdown_content | markdownify }}</td>
+              {% else %}
+              <td></td>
+              {% endif %}
+              {% if ticket.status == "DONE" %}
+              <td class="ticket" data-ref="{{ ticket.ref }}" data-status="{{ ticket.status }}">{{ticket_markdown_content | markdownify }}</td>
+              {% else %}
+              <td></td>
+              {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+      </div>
+      <canvas id="brundown-chart" width="400" height= "400"></canvas>
+    </div>
+  </body>
+</html>

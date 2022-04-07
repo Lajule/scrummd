@@ -1,35 +1,30 @@
 window.addEventListener('DOMContentLoaded', function (event) {
 
     function getValue(list, re, defaultValue) {
-	for (const e of list) {
+	    for (const e of list) {
             const groups = re.exec(e.textContent);
 
             if (groups) {
-		return groups[1];
+                return groups[1];
             }
-	}
+	    }
 
-	return defaultValue;
+	    return defaultValue;
     }
 
     const velocity = getValue(document.querySelectorAll('p'), /Velocity: (\d+)/i, 0);
     const from = new Date(getValue(document.querySelectorAll('p'), /From: ([0-9-]+)/i, 0));
     const to = new Date(getValue(document.querySelectorAll('p'), /To: ([0-9-]+)/i, 0));
     const tickets = Array.from(document.querySelectorAll('.ticket')).map((ticket) => {
-	const ref = ticket.dataset.ref;
-	const h1 = ticket.querySelector('h1');
-	const title = h1 ? h1.textContent : "";
-	const storyPoints = getValue(ticket.querySelectorAll('p'), /Story points: (\d+)/i, 0);
-	const assignee = getValue(ticket.querySelectorAll('p'), /Assignee: ([A-Za-z0-9_]+)/i, "");
-	return {ref, title, storyPoints, assignee};
+	    const ref = ticket.dataset.ref;
+	    const h1 = ticket.querySelector('h1');
+    	const title = h1 ? h1.textContent : "";
+    	const storyPoints = getValue(ticket.querySelectorAll('p'), /Story points: (\d+)/i, 0);
+    	const assignee = getValue(ticket.querySelectorAll('p'), /Assignee: ([A-Za-z0-9_]+)/i, "");
+    	return {ref, title, storyPoints, assignee};
     });
 
-    const canvas = document.createElement('canvas');
-    canvas.id = 'brundown-chart';
-    canvas.style.width = "400px";
-    canvas.style.height = "400px";
-    document.body.appendChild(canvas);
-
+    const canvas = document.getElementById('brundown-chart');
     const ctx = canvas.getContext('2d');
     const brundownChart = new Chart(ctx, {
 	type: 'bar',
