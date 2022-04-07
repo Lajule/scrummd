@@ -6,7 +6,7 @@ tickets:
 ---
 
 # Sprint name goes here
-Velocity: 30, From: 20220101, To: 20220131
+Velocity: 30, From: 2022-12-17, To: 2022-12-31
 
 Add sprint description here.
 
