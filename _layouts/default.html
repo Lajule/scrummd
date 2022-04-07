@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+    <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
+  </head>
+  <body>
+    {% capture page_content %}{{ page.content | markdownify }}{% endcapture %}
+    {% for ref in page.tickets %}
+    {% capture ticket_markdown_content %}{% include tickets/{{ ref }}.md %}{% endcapture %}
+    {% capture ticket_content %}<div class="ticket" data-ref="{{ ref }}">{{ticket_markdown_content | markdownify }}</div>{% endcapture %}
+    {% capture page_content %}{{ page_content | replace: ref, ticket_content }}{% endcapture %}
+    {% endfor %}
+    {{ page_content }}
+  </body>
+</html>
