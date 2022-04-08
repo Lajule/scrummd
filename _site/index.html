@@ -3,85 +3,50 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <title>Happy Jekylling! - Scrummd</title>
+    <title>Happy Jekylling! - Srummd</title>
     <link rel="stylesheet" href="/assets/css/main.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <script src="/assets/js/chart.min.js"></script>
     <script src="/assets/js/main.js"></script>
   </head>
   <body>
-    
-    
-    <h1 id="sprint-name-goes-here">Sprint name goes here</h1>
-<p>Velocity: 30, From: 2022-12-17, To: 2022-12-31</p>
-
-<p>Add sprint description here.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>TO DO</th>
-      <th>DOCUMENTATION</th>
-      <th>DEVELOPEMENT</th>
-      <th>BLOCKED / WAITING QA</th>
-      <th>REVIEW</th>
-      <th>DONE</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><div class="ticket" data-ref="TIC-001"><h1 id="ticket-title-goes-here">Ticket title goes here</h1>
-<p>Story points: 2, Assignee: John_Doe</p>
-
-<p>Ticket description goes here.</p>
-
-<p>You can add lists:</p>
-
-<ul>
-  <li>Item 1</li>
-  <li>Item 2</li>
-</ul>
-
-<p>Or tables:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Col 1</th>
-      <th>Col 2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Cell 1</td>
-      <td>Cell 2</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p>Add some comments.</p>
-</blockquote>
-
-<p>Add code snipets:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">hello</span><span class="p">()</span> <span class="p">{</span>
-     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-</div></td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td> </td>
-      <td><div class="ticket" data-ref="TIC-001"><h1 id="ticket-title-goes-here">Ticket title goes here</h1>
-<p>Story points: 2, Assignee: John_Doe</p>
-
-<p>Ticket description goes here.</p>
+    <div class="sprint" data-from="2022-12-17" data-to="2022-12-17">
+      <div class="sprint-content"><p>Sprint description goes here.</p>
+</div>
+      <div class="sprint-board">
+	<table>
+          <thead>
+            <tr>
+              <th>TO DO</th>
+	      <th>DOCUMENTATION</th>
+	      <th>DEVELOPEMENT</th>
+	      <th>BLOCKED / WAITING QA</th>
+	      <th>REVIEW</th>
+	      <th>DONE</th>
+            </tr>
+          </thead>
+          <tbody>
+	    
+	    
+	    
+            <tr>
+              
+	      
+	    <td class="sprint-ticket"
+		data-ref="TIC-001"
+		data-complexity="2"
+		data-status="TO DO"
+		data-updated="2022-12-17">
+	      <dl>
+		<dt>Ref.</dt>
+		<dd>TIC-001</dd>
+		<dt>Title</dt>
+		<dd>Ticket title goes here</dd>
+		<dt>Complexity</dt>
+		<dd>2</dd>
+		<dt>Assignee</dt>
+		<dd>John Doe</dd>
+	      </dl>
+	      <div class="sprint-ticket-detail"><p>Ticket description goes here.</p>
 
 <p>You can add lists:</p>
 
@@ -117,201 +82,65 @@
      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></div>
-</div></td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><div class="ticket" data-ref="TIC-001"><h1 id="ticket-title-goes-here">Ticket title goes here</h1>
-<p>Story points: 2, Assignee: John_Doe</p>
+</div>
+	    </td>
+	    
+	      <td></td>
+	      <td></td>
+	      <td></td>
+	      <td></td>
+	      <td></td>
+              
+            </tr>
+	    
+	    
+            <tr>
+              
+              <td></td>
+	      <td></td>
+	      
+	    <td class="sprint-ticket"
+		data-ref="TIC-002"
+		data-complexity="4"
+		data-status="DEVELOPEMENT"
+		data-updated="2022-12-17">
+	      <dl>
+		<dt>Ref.</dt>
+		<dd>TIC-002</dd>
+		<dt>Title</dt>
+		<dd>Ticket title goes here</dd>
+		<dt>Complexity</dt>
+		<dd>4</dd>
+		<dt>Assignee</dt>
+		<dd>John Ranbo</dd>
+	      </dl>
+	      <div class="sprint-ticket-detail"><p>Ticket description goes here.</p>
 
-<p>Ticket description goes here.</p>
+<p>You can add checklists:</p>
 
-<p>You can add lists:</p>
-
-<ul>
-  <li>Item 1</li>
-  <li>Item 2</li>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />toto</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />tutu</li>
 </ul>
-
-<p>Or tables:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Col 1</th>
-      <th>Col 2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Cell 1</td>
-      <td>Cell 2</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p>Add some comments.</p>
-</blockquote>
 
 <p>Add code snipets:</p>
 
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">hello</span><span class="p">()</span> <span class="p">{</span>
-     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span><span class="p">);</span>
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">hello</span><span class="p">()</span> <span class="p">{</span>
+     <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></div>
-</div></td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td><div class="ticket" data-ref="TIC-001"><h1 id="ticket-title-goes-here">Ticket title goes here</h1>
-<p>Story points: 2, Assignee: John_Doe</p>
-
-<p>Ticket description goes here.</p>
-
-<p>You can add lists:</p>
-
-<ul>
-  <li>Item 1</li>
-  <li>Item 2</li>
-</ul>
-
-<p>Or tables:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Col 1</th>
-      <th>Col 2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Cell 1</td>
-      <td>Cell 2</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p>Add some comments.</p>
-</blockquote>
-
-<p>Add code snipets:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">hello</span><span class="p">()</span> <span class="p">{</span>
-     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-</div></td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td><div class="ticket" data-ref="TIC-001"><h1 id="ticket-title-goes-here">Ticket title goes here</h1>
-<p>Story points: 2, Assignee: John_Doe</p>
-
-<p>Ticket description goes here.</p>
-
-<p>You can add lists:</p>
-
-<ul>
-  <li>Item 1</li>
-  <li>Item 2</li>
-</ul>
-
-<p>Or tables:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Col 1</th>
-      <th>Col 2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Cell 1</td>
-      <td>Cell 2</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p>Add some comments.</p>
-</blockquote>
-
-<p>Add code snipets:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">hello</span><span class="p">()</span> <span class="p">{</span>
-     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-</div></td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td><div class="ticket" data-ref="TIC-001"><h1 id="ticket-title-goes-here">Ticket title goes here</h1>
-<p>Story points: 2, Assignee: John_Doe</p>
-
-<p>Ticket description goes here.</p>
-
-<p>You can add lists:</p>
-
-<ul>
-  <li>Item 1</li>
-  <li>Item 2</li>
-</ul>
-
-<p>Or tables:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Col 1</th>
-      <th>Col 2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Cell 1</td>
-      <td>Cell 2</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p>Add some comments.</p>
-</blockquote>
-
-<p>Add code snipets:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">hello</span><span class="p">()</span> <span class="p">{</span>
-     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-</div></td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
+</div>
+	    </td>
+	    
+	      <td></td>
+	      <td></td>
+	      <td></td>
+              
+            </tr>
+	    
+	  </tbody>
+	</table>
+      </div>
+      <canvas id="sprint-brundown-chart"></canvas>
   </body>
 </html>

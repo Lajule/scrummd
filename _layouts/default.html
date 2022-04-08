@@ -5,16 +5,95 @@
     <meta charset="utf-8">
     <title>{{ page.title }} - {{ site.title }}</title>
     <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <script src="{{ "/assets/js/chart.min.js" | relative_url }}"></script>
     <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
   </head>
   <body>
-    {% capture page_content %}{{ page.content | markdownify }}{% endcapture %}
-    {% for ref in page.tickets %}
-    {% capture ticket_markdown_content %}{% include tickets/{{ ref }}.md %}{% endcapture %}
-    {% capture ticket_content %}<div class="ticket" data-ref="{{ ref }}">{{ticket_markdown_content | markdownify }}</div>{% endcapture %}
-    {% capture page_content %}{{ page_content | replace: ref, ticket_content }}{% endcapture %}
-    {% endfor %}
-    {{ page_content }}
+    <div class="sprint" data-from="{{ page.from }}" data-to="{{ page.to }}">
+      <div class="sprint-content">{{ content }}</div>
+      <div class="sprint-board">
+	<table>
+          <thead>
+            <tr>
+              <th>TO DO</th>
+	      <th>DOCUMENTATION</th>
+	      <th>DEVELOPEMENT</th>
+	      <th>BLOCKED / WAITING QA</th>
+	      <th>REVIEW</th>
+	      <th>DONE</th>
+            </tr>
+          </thead>
+          <tbody>
+	    {% assign sprint_tickets = site.tickets | where: "sprint", page.title %}
+	    {% for ticket in sprint_tickets %}
+	    {% capture ticket_cell %}
+	    <td class="sprint-ticket"
+		data-ref="{{ ticket.ref }}"
+		data-complexity="{{ ticket.complexity }}"
+		data-status="{{ ticket.status }}"
+		data-updated="{{ ticket.updated }}">
+	      <dl>
+		<dt>Ref.</dt>
+		<dd>{{ticket.ref}}</dd>
+		<dt>Title</dt>
+		<dd>{{ticket.title}}</dd>
+		<dt>Complexity</dt>
+		<dd>{{ticket.complexity}}</dd>
+		<dt>Assignee</dt>
+		<dd>{{ticket.assignee}}</dd>
+	      </dl>
+	      <div class="sprint-ticket-detail">{{ ticket.content | mardownify }}</div>
+	    </td>
+	    {% endcapture %}
+            <tr>
+              {% if ticket.status == "TO DO" %}
+	      {{ ticket_cell }}
+	      <td></td>
+	      <td></td>
+	      <td></td>
+	      <td></td>
+	      <td></td>
+              {% elsif ticket.status == "DOCUMENTATION" %}
+              <td></td>
+	      {{ ticket_cell }}
+	      <td></td>
+	      <td></td>
+	      <td></td>
+	      <td></td>
+              {% elsif ticket.status == "DEVELOPEMENT" %}
+              <td></td>
+	      <td></td>
+	      {{ ticket_cell }}
+	      <td></td>
+	      <td></td>
+	      <td></td>
+              {% elsif ticket.status == "BLOCKED / WAITING QA" %}
+              <td></td>
+	      <td></td>
+	      <td></td>
+	      {{ ticket_cell }}
+	      <td></td>
+	      <td></td>
+              {% elsif ticket.status == "REVIEW" %}
+              <td></td>
+	      <td></td>
+	      <td></td>
+	      <td></td>
+	      {{ ticket_cell }}
+	      <td></td>
+              {% elsif ticket.status == "DONE" %}
+              <td></td>
+	      <td></td>
+	      <td></td>
+	      <td></td>
+	      <td></td>
+	      {{ ticket_cell }}
+              {% endif %}
+            </tr>
+	    {% endfor %}
+	  </tbody>
+	</table>
+      </div>
+      <canvas id="sprint-brundown-chart"></canvas>
   </body>
 </html>

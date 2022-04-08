@@ -1,3 +1,5 @@
 url: ""
 baseurl: ""
-title: "Scrummd"
+title: "Srummd"
+collections:
+  - tickets
