@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Backlog - Scrummd</title>
+    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+  </head>
+  <body>
+      <div class="backlog">
+        {% for ref in page.tickets %}
+        {% capture ticket_markdown_content %}{% include tickets/{{ ref }}.md %}{% endcapture %}
+        <div class="ticket" data-ref="{{ ref }}">{{ticket_markdown_content | markdownify }}</div>
+        {% endfor %}
+      </di>
+  </body>
+</html>
