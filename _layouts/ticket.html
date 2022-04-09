@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>{{ page.ref }} - {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+</head>
+<body>
+  <div class="ticket">
+    <h1>{{page.ref}} - {{page.title}}</h1>
+    <dl>
+      <dt>Ref.</dt>
+      <dd>{{page.ref}}</dd>
+      <dt>Title</dt>
+      <dd>{{ page.title }}</dd>
+      <dt>Complexity</dt>
+      <dd>{{ page.complexity }}</dd>
+      <dt>Assignee</dt>
+      <dd>{{ page.assignee }}</dd>
+      <dt>Sprint</dt>
+      {% assign sprint = site.pages | find: "title", page.sprint %}
+      {% if sprint %}
+      <dd><a href="{{ sprint.url }}">{{ sprint.title }}</a></dd>
+      {% else %}
+      <dd>{{ page.sprint }}</dd>
+      {% endif %}
+      <dt>Created</dt>
+      <dd>{{ page.created }}</dd>
+      <dt>Updated</dt>
+      <dd>{{ page.updated }}</dd>
+    </dl>
+    <div class="ticket-detail">{{ page.content | mardownify }}</div>
+  </div>
+</body>
+</html>
