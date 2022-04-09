@@ -9,8 +9,22 @@
   <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
 </head>
 <body>
-  <div class="sprint" data-from="{{ page.from }}" data-to="{{ page.to }}">
-  <div class="sprint-content">{{ content }}</div>
+  {% assign sprint_tickets = site.tickets | where: "sprint", page.title %}
+  {% assign sprint_tickets_size = sprint_tickets | size %}
+  {% assign complexity = 0 %}
+  {% for ticket in sprint_tickets %}
+  {% assign complexity = complexity | plus: ticket.complexity %}
+  {% endfor %}
+  <div class="sprint" data-from="{{ page.from }}" data-to="{{ page.to }}" data-complexity="{{ complexity }}">
+  <h1>{{page.title}}</h1>
+  <dl>
+    <dt>Tickets</dt>
+    <dd>{{ sprint_tickets_size }}</dd>
+    <dt>Complexity</dt>
+    <dd>{{ complexity }}</dd>
+  </dl>
+  <div class="sprint-detail">{{ content }}</div>
+  {% if sprint_tickets_size > 0 %}
   <div class="sprint-board">
     <table>
       <thead>
@@ -24,7 +38,6 @@
         </tr>
       </thead>
       <tbody>
-        {% assign sprint_tickets = site.tickets | where: "sprint", page.title %}
         {% for ticket in sprint_tickets %}
         {% capture ticket_cell %}
         <td class="sprint-ticket"
@@ -95,5 +108,6 @@
     </table>
   </div>
   <canvas id="sprint-brundown-chart"></canvas>
+  {% endif %}
 </body>
 </html>

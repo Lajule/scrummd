@@ -8,9 +8,9 @@ window.addEventListener('DOMContentLoaded', function (event) {
         sprintDays.push(from.toLocaleDateString());
     }
 
-    const totalComplexity = tickets.reduce((acc, curr) => acc + parseInt(curr.complexity), 0);
+    const sprintComplexity = parseInt(sprint.dataset.complexity);
 
-    const dataIdeal = [{x: sprintDays[0], y: totalComplexity}, {x: sprintDays[sprintDays.length - 1], y: 0}];
+    const dataIdeal = [{x: sprintDays[0], y: sprintComplexity}, {x: sprintDays[sprintDays.length - 1], y: 0}];
 
     const completedMap = tickets.reduce((acc, curr) => {
         if (curr.status == 'DONE') {
@@ -24,7 +24,7 @@ window.addEventListener('DOMContentLoaded', function (event) {
     }, {})
 
     const dataCompleted = [];
-    let currentComplexity = totalComplexity;
+    let currentComplexity = sprintComplexity;
     for (let i = 0; i < sprintDays.length; ++i) {
         const day = sprintDays[i];
         if (completedMap[day]) {

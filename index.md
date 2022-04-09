@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Happy Jekylling!"
+title: "First sprint"
 from: 2022-12-01
 to: 2022-12-15
 ---
