@@ -3,12 +3,14 @@
 	"file": "main.css",
 	"sources": [
 		"main.scss",
+		"_sass/reset.scss",
 		"_sass/main.scss"
 	],
 	"sourcesContent": [
-		"@import \"main\";\n",
+		"@import \"reset\";\n@import \"main\";\n",
+		"*, *:before, *:after{\n    box-sizing: border-box;\n}\n\nhtml, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video{\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: 100%;\n    font: inherit;\n    vertical-align: baseline;\n    text-rendering: optimizeLegibility;\n    -webkit-font-smoothing: antialiased;\n    text-size-adjust: none;\n}\n\nfooter, header, nav, section, main{\n    display: block;\n}\n\nbody{\n    line-height: 1;\n}\n\nol, ul{\n    list-style: none;\n}\n\nblockquote, q{\n    quotes: none;\n}\n\nblockquote:before, blockquote:after, q:before, q:after{\n    content: '';\n    content: none;\n}\n\ntable{\n    border-collapse: collapse;\n    border-spacing: 0;\n}\n\ninput{\n    -webkit-appearance: none;\n    border-radius: 0;\n}\n",
 		"$backgroundColor: #ffffff;\n$bodyColor: #000000;\n$bodyFont: -apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\";\n\nbody {\n  background: $backgroundColor;\n  color: $bodyColor;\n  font-family: $bodyFont;\n}\n"
 	],
 	"names": [],
-	"mappings": "ACIA,AAAA,IAAI,CAAC,EACH,UAAU,EALM,OAAO,EAMvB,KAAK,EALK,OAAO,EAMjB,WAAW,EALF,aAAa,EAAC,kBAAkB,EAAC,UAAU,EAAC,SAAS,EAAC,KAAK,EAAC,UAAU,EAAC,mBAAmB,EAAC,gBAAgB,EAAC,iBAAiB,GAMvI"
+	"mappings": "ACAA,AAAA,CAAC,EAAE,CAAC,CAAC,MAAM,EAAE,CAAC,CAAC,KAAK,CAAA,EAChB,UAAU,EAAE,UAAU,GACzB;;AAED,AAAA,IAAI,EAAE,IAAI,EAAE,GAAG,EAAE,IAAI,EAAE,MAAM,EAAE,MAAM,EAAE,MAAM,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,CAAC,EAAE,UAAU,EAAE,GAAG,EAAE,CAAC,EAAE,IAAI,EAAE,EAAE,EAAE,GAAG,EAAE,KAAK,EAAE,MAAM,EAAE,MAAM,EAAE,GAAG,EAAE,GAAG,EAAE,EAAE,EAAE,CAAC,EAAE,CAAC,EAAE,CAAC,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,QAAQ,EAAE,IAAI,EAAE,KAAK,EAAE,KAAK,EAAE,OAAO,EAAE,KAAK,EAAE,KAAK,EAAE,KAAK,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,IAAI,EAAE,MAAM,EAAE,KAAK,EAAE,MAAM,EAAE,MAAM,EAAE,GAAG,EAAE,OAAO,EAAE,KAAK,CAAA,EACnS,MAAM,EAAE,CAAC,EACT,OAAO,EAAE,CAAC,EACV,MAAM,EAAE,CAAC,EACT,SAAS,EAAE,IAAI,EACf,IAAI,EAAE,OAAO,EACb,cAAc,EAAE,QAAQ,EACxB,cAAc,EAAE,kBAAkB,EAClC,sBAAsB,EAAE,WAAW,EACnC,gBAAgB,EAAE,IAAI,GACzB;;AAED,AAAA,MAAM,EAAE,MAAM,EAAE,GAAG,EAAE,OAAO,EAAE,IAAI,CAAA,EAC9B,OAAO,EAAE,KAAK,GACjB;;AAED,AAAA,IAAI,CAAA,EACA,WAAW,EAAE,CAAC,GACjB;;AAED,AAAA,EAAE,EAAE,EAAE,CAAA,EACF,UAAU,EAAE,IAAI,GACnB;;AAED,AAAA,UAAU,EAAE,CAAC,CAAA,EACT,MAAM,EAAE,IAAI,GACf;;AAED,AAAA,UAAU,CAAC,MAAM,EAAE,UAAU,CAAC,KAAK,EAAE,CAAC,CAAC,MAAM,EAAE,CAAC,CAAC,KAAK,CAAA,EAClD,OAAO,EAAE,EAAE,EACX,OAAO,EAAE,IAAI,GAChB;;AAED,AAAA,KAAK,CAAA,EACD,eAAe,EAAE,QAAQ,EACzB,cAAc,EAAE,CAAC,GACpB;;AAED,AAAA,KAAK,CAAA,EACD,kBAAkB,EAAE,IAAI,EACxB,aAAa,EAAE,CAAC,GACnB;;ACzCD,AAAA,IAAI,CAAC,EACH,UAAU,EALM,OAAO,EAMvB,KAAK,EALK,OAAO,EAMjB,WAAW,EALF,aAAa,EAAC,kBAAkB,EAAC,UAAU,EAAC,SAAS,EAAC,KAAK,EAAC,UAAU,EAAC,mBAAmB,EAAC,gBAAgB,EAAC,iBAAiB,GAMvI"
 }
