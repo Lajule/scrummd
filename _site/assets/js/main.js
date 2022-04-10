@@ -1,44 +1,66 @@
-window.addEventListener('DOMContentLoaded', function (event) {
-    const sprint = document.querySelector('.sprint');
-    const tickets = Array.from(sprint.querySelectorAll('.sprint-ticket')).map(ticket => ticket.dataset);
-    const canvas = document.getElementById('sprint-brundown-chart');
+window.addEventListener('DOMContentLoaded', function(event) {
+	const sprint = document.querySelector('.sprint');
+	const tickets = sprint.querySelectorAll('.sprint-ticket');
+	const canvas = document.getElementById('sprint-brundown-chart');
 
-    const daysInSprint = [];
-    const to = new Date(sprint.dataset.to);
-    for (const from = new Date(sprint.dataset.from); from <= to; from.setDate(from.getDate() + 1)) {
-        daysInSprint.push(from.toLocaleDateString());
-    }
+	const chartData = {
+		labels: [],
+		datasets: [{
+				label: "Ideal",
+				data: [],
+				borderColor: 'rgb(75, 192, 192)',
+				backgroundColor: 'rgb(75, 192, 192)'
+			},
+			{
+				label: "Completed",
+				data: [],
+				stepped: true,
+				borderColor: 'rgb(255, 159, 64)',
+				backgroundColor: 'rgb(255, 159, 64)'
+			}
+		]
+	};
 
-    const sprintComplexity = parseInt(sprint.dataset.complexity);
+	const to = new Date(sprint.dataset.to);
+	for (const from = new Date(sprint.dataset.from); from <= to; from.setDate(from.getDate() + 1)) {
+		chartData.labels.push(from.toLocaleDateString());
+	}
 
-    const dataIdeal = [{x: daysInSprint[0], y: sprintComplexity}, {x: daysInSprint[daysInSprint.length - 1], y: 0}];
+	let complexity = parseInt(sprint.dataset.complexity, 10);
 
-    const doneTicketsMap = tickets.reduce((acc, curr) => {
-        if (curr.status == 'DONE') {
-            const updated = new Date(curr.updated).toLocaleDateString();
-            if (!acc[updated]) { acc[updated] = 0; }
-            acc[updated] += parseInt(curr.complexity);
-        }
-        return acc;
-    }, {})
+	const doneTicketsMap = Array.from(tickets).reduce((acc, curr) => {
+		if (curr.dataset.status == 'DONE') {
+			const updated = new Date(curr.dataset.updated).toLocaleDateString();
+			if (!acc[updated]) {
+				acc[updated] = 0;
+			}
+			acc[updated] += parseInt(curr.dataset.complexity, 10);
+		}
+		return acc;
+	}, {})
 
-    const doneTicketsData = [];
-    let currentComplexity = sprintComplexity;
-    for (let i = 0; i < daysInSprint.length; ++i) {
-        const day = daysInSprint[i];
-        if (doneTicketsMap[day]) { currentComplexity -= doneTicketsMap[day]; }
-        doneTicketsData.push({x: daysInSprint[i], y: currentComplexity});
-    }
+	chartData.datasets[0].data = [{
+		x: chartData.labels[0],
+		y: complexity
+	}, {
+		x: chartData.labels[chartData.labels.length - 1],
+		y: 0
+	}];
 
-    new Chart(canvas.getContext('2d'), {
-        type: 'line',
-        data: {
-            labels: daysInSprint,
-            datasets: [
-                {label: "Ideal", data: dataIdeal, borderColor: 'rgb(75, 192, 192)', backgroundColor: 'rgb(75, 192, 192)'},
-                {label: "Completed", data: doneTicketsData, stepped: true, borderColor: 'rgb(255, 159, 64)', backgroundColor: 'rgb(255, 159, 64)'},
-            ]
-	    }
-    });
+	for (let i = 0; i < chartData.labels.length; ++i) {
+		const day = chartData.labels[i];
+		if (doneTicketsMap[day]) {
+			complexity -= doneTicketsMap[day];
+		}
+		chartData.datasets[1].data.push({
+			x: chartData.labels[i],
+			y: complexity
+		});
+	}
+
+	new Chart(canvas.getContext('2d'), {
+		type: 'line',
+		data: chartData
+	});
 });
 
