@@ -50,28 +50,34 @@
 
 .highlight .k, .highlight .kc, .highlight .kd, .highlight .kn, .highlight .kr, .highlight .gh, .highlight .gp, .highlight .gs, .highlight .gu, .highlight .nc, .highlight .ni, .highlight .ne, .highlight .nn, .highlight .nt, .highlight .ow, .highlight .se, .highlight .si { font-weight: bold; }
 
-body { background: #ffffff; color: #000000; font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
+body { background: #f3f7f9; color: #333333; font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
+
+body h1 { border-bottom: 1px solid #ccc; }
+
+body a { color: #ff9f40; }
+
+body dl { display: grid; grid-template-columns: max-content auto; }
+
+body dt { text-align: right; font-weight: bold; grid-column-start: 1; }
+
+body dd { grid-column-start: 2; }
+
+body table { border-collapse: collapse; }
+
+body table th, body table td { padding: .5em; border-right: 1px solid #ccc; }
+
+body table th:last-child, body table td:last-child { border-right: none; }
+
+body table thead tr:first-child { border-bottom: 1px solid #ccc; }
+
+body table tr:nth-child(even) { background-color: #fdfdfd; }
 
 body .sprint, body .ticket { padding: 1em; }
 
-body .sprint a, body .ticket a { color: #ff9f40; }
+body .sprint-board { overflow-x: auto; }
 
-body .sprint dl, body .ticket dl { display: grid; grid-template-columns: max-content auto; }
+body .sprint-board table { width: 100%; }
 
-body .sprint dt, body .ticket dt { text-align: right; font-weight: bold; grid-column-start: 1; }
-
-body .sprint dd, body .ticket dd { grid-column-start: 2; }
-
-body .sprint .sprint-board, body .ticket .sprint-board { overflow-x: auto; }
-
-body .sprint .sprint-board table, body .ticket .sprint-board table { width: 100%; }
-
-body .sprint .sprint-board table th, body .sprint .sprint-board table td, body .ticket .sprint-board table th, body .ticket .sprint-board table td { padding: .5em; border-right: 1px solid #f0f0f0; }
-
-body .sprint .sprint-board table th:last-child, body .sprint .sprint-board table td:last-child, body .ticket .sprint-board table th:last-child, body .ticket .sprint-board table td:last-child { border-right: none; }
-
-body .sprint .sprint-board table tr:nth-child(even), body .ticket .sprint-board table tr:nth-child(even) { background-color: #f0f0f0; }
-
-body .sprint .chart-container, body .ticket .chart-container { margin: 1em auto; position: relative; width: 80vw; }
+body .chart-container { margin: 1em auto; position: relative; width: 80vw; }
 
 /*# sourceMappingURL=main.css.map */

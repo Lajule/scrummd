@@ -21,8 +21,8 @@ window.addEventListener('DOMContentLoaded', function(event) {
 		datasets: [{
 				label: "Ideal",
 				data: [],
-				borderColor: 'rgb(0, 0, 0)',
-				backgroundColor: 'rgb(0, 0, 0)'
+				borderColor: 'rgb(51, 51, 51)',
+				backgroundColor: 'rgb(51, 51, 51)'
 			},
 			{
 				label: "Completed",
@@ -62,7 +62,7 @@ window.addEventListener('DOMContentLoaded', function(event) {
 		type: 'line',
 		data: chartData,
 		options: {
-				responsive: true
+			responsive: true
 		}
 	});
 });
