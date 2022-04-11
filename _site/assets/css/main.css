@@ -1,3 +1,17 @@
 body { background: #ffffff; color: #000000; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
 
+.sprint, .ticket { padding: 1em; }
+
+.sprint h1, .ticket h1 { text-align: center; }
+
+.sprint dl, .ticket dl { display: grid; grid-template-columns: max-content auto; }
+
+.sprint dt, .ticket dt { grid-column-start: 1; }
+
+.sprint dd, .ticket dd { grid-column-start: 2; }
+
+.sprint .sprint-board, .ticket .sprint-board { overflow-x: auto; }
+
+.sprint .sprint-board table, .ticket .sprint-board table { width: 100%; }
+
 /*# sourceMappingURL=main.css.map */

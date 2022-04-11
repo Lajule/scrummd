@@ -7,3 +7,33 @@ body {
   color: $bodyColor;
   font-family: $bodyFont;
 }
+
+.sprint,
+.ticket {
+    padding: 1em;
+
+    h1 {
+	text-align: center;
+    }
+
+    dl {
+	display: grid;
+	grid-template-columns: max-content auto;
+    }
+
+    dt {
+	grid-column-start: 1;
+    }
+
+    dd {
+	grid-column-start: 2;
+    }
+
+    .sprint-board {
+	overflow-x: auto;
+
+	table {
+	    width: 100%;
+	}
+    }
+}
