@@ -21,8 +21,8 @@ window.addEventListener('DOMContentLoaded', function(event) {
 		datasets: [{
 				label: "Ideal",
 				data: [],
-				borderColor: 'rgb(75, 192, 192)',
-				backgroundColor: 'rgb(75, 192, 192)'
+				borderColor: 'rgb(0, 0, 0)',
+				backgroundColor: 'rgb(0, 0, 0)'
 			},
 			{
 				label: "Completed",
@@ -60,6 +60,9 @@ window.addEventListener('DOMContentLoaded', function(event) {
 
 	new Chart(canvas.getContext('2d'), {
 		type: 'line',
-		data: chartData
+		data: chartData,
+		options: {
+				responsive: true
+		}
 	});
 });

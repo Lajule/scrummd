@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
 <head>
@@ -30,7 +28,6 @@
   {% if sprint_tickets_size > 0 %}
   <div class="sprint-board">
     <table>
-      <caption>Sprint board</caption>
       <thead>
         <tr>
           <th>TO DO</th>
@@ -110,7 +107,9 @@
       </tbody>
     </table>
   </div>
-  <canvas id="sprint-brundown-chart"></canvas>
+  <div class="chart-container">
+    <canvas id="sprint-brundown-chart"></canvas>
+  </div>
   {% endif %}
 </body>
 </html>
