@@ -67,26 +67,11 @@ window.addEventListener('DOMContentLoaded', function(event) {
         plugins: [{
             id: 'custom-canvas-background-color',
             beforeDraw: (chart, args, options) => {
-                const {
-                    ctx,
-                    chartArea: {
-                        top,
-                        right,
-                        bottom,
-                        left,
-                        width,
-                        height
-                    },
-                    scales: {
-                        x,
-                        y
-                    },
-                } = chart;
-                ctx.save();
-                ctx.globalCompositeOperation = 'destination-over';
-                ctx.fillStyle = 'rgb(253, 253, 253)';
-                ctx.fillRect(left, top, width, height);
-                ctx.restore();
+                chart.ctx.save();
+                chart.ctx.globalCompositeOperation = 'destination-over';
+                chart.ctx.fillStyle = 'rgb(253, 253, 253)';
+                chart.ctx.fillRect(chart.chartArea.left, chart.chartArea.top, chart.chartArea.width, chart.chartArea.height);
+                chart.ctx.restore();
             },
         }]
     });
