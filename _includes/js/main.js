@@ -72,7 +72,7 @@ window.addEventListener('DOMContentLoaded', function(event) {
                 chart.ctx.fillStyle = 'rgb(253, 253, 253)';
                 chart.ctx.fillRect(chart.chartArea.left, chart.chartArea.top, chart.chartArea.width, chart.chartArea.height);
                 chart.ctx.restore();
-            },
+            }
         }]
     });
 });
