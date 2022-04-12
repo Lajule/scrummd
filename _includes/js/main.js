@@ -62,7 +62,7 @@ window.addEventListener('DOMContentLoaded', function(event) {
 		type: 'line',
 		data: chartData,
 		options: {
-			responsive: true
+		    responsive: true
 		}
 	});
 });
