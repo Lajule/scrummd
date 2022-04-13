@@ -4,3 +4,5 @@ title: "Srummd"
 collections:
   tickets:
     output: true
+exclude:
+  - README.md
