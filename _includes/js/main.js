@@ -21,15 +21,15 @@ window.addEventListener('DOMContentLoaded', function(event) {
         datasets: [{
                 label: "Ideal",
                 data: [],
-                borderColor: 'rgb(51, 51, 51)',
-                backgroundColor: 'rgb(51, 51, 51)'
+                borderColor: '#1E2224',
+                backgroundColor: '#1E2224'
             },
             {
                 label: "Completed",
                 data: [],
                 stepped: true,
-                borderColor: 'rgb(255, 159, 64)',
-                backgroundColor: 'rgb(255, 159, 64)'
+                borderColor: '#6ac174',
+                backgroundColor: '#6ac174'
             }
         ]
     };
@@ -63,16 +63,15 @@ window.addEventListener('DOMContentLoaded', function(event) {
         data: chartData,
         options: {
             responsive: true
-        },
-        plugins: [{
-            id: 'custom-canvas-background-color',
-            beforeDraw: (chart, args, options) => {
-                chart.ctx.save();
-                chart.ctx.globalCompositeOperation = 'destination-over';
-                chart.ctx.fillStyle = 'rgb(253, 253, 253)';
-                chart.ctx.fillRect(chart.chartArea.left, chart.chartArea.top, chart.chartArea.width, chart.chartArea.height);
-                chart.ctx.restore();
-            }
-        }]
+        }
+    });
+
+    tickets.forEach(ticket => {
+	const details = ticket.querySelector('button');
+	const dialog = ticket.querySelector('dialog');
+
+	details.addEventListener('click', function () {
+	    dialog.showModal();
+	});
     });
 });

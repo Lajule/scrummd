@@ -54,7 +54,15 @@
             <dd>{{ ticket.complexity }}</dd>
             <dt>Assignee</dt>
             <dd>{{ ticket.assignee }}</dd>
+            <dt>Details</dt>
+            <dd><button>Details</button></dd>
           </dl>
+	  <dialog>
+	    <form method="dialog">
+	      {{ ticket.content | mardownify }}
+	      <button>Close</button>
+	    </form>
+	  </dialog>
         </td>
         {% endcapture %}
         <tr>
@@ -110,5 +118,6 @@
     <canvas id="sprint-brundown-chart"></canvas>
   </div>
   {% endif %}
+  </div>
 </body>
 </html>

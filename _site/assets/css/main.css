@@ -163,8 +163,6 @@ body { background: #f3f7f9; color: #333333; font-family: -apple-system,BlinkMacS
 
 body .sprint > h1, body .sprint > h2, body .sprint > h3, body .sprint > h4, body .sprint > h5, body .ticket > h1, body .ticket > h2, body .ticket > h3, body .ticket > h4, body .ticket > h5 { padding: .3em; background: #fdfdfd; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; }
 
-body a { color: #ff9f40; }
-
 body dl { padding: 1em; display: grid; grid-template-columns: max-content auto; }
 
 body dl dt { text-align: right; font-weight: bold; grid-column-start: 1; }
