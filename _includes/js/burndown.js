@@ -66,8 +66,3 @@ window.addEventListener('DOMContentLoaded', function(event) {
         }
     });
 });
-
-window.addEventListener('DOMContentLoaded', function(event) {
-
-});
-

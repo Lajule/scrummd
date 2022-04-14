@@ -3,72 +3,72 @@ body {
     color: $main-text;
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 
-    .sprint,
-    .ticket {
-	&>h1, &>h2, &>h3, &>h4, &>h5 {
-	    padding: .3em;
-	    background: $alt-bg;
-	    border-top: 1px solid $border-color;
-	    border-bottom: 1px solid $border-color;
-	}
-    }
-
-    dl {
-	padding: 1em;
-	display: grid;
-	grid-template-columns: max-content auto;
-
-	dt {
-	    text-align: right;
-	    font-weight: bold;
-	    grid-column-start: 1;
+	.sprint,
+	.ticket {
+		&>h1, &>h2, &>h3, &>h4, &>h5 {
+			padding: .3em;
+			background: $alt-bg;
+			border-top: 1px solid $border-color;
+			border-bottom: 1px solid $border-color;
+		}
 	}
 
-	dd {
-	    grid-column-start: 2;
-	}
-    }
-
-    .sprint-detail,
-    .ticket-detail {
-	padding: 0 1em;
-    }
-
-    table {
-	border-collapse: collapse;
-
-	th,
-	td {
-	    padding: .5em;
-	    border-right: 1px solid $border-color;
-
-	    &:last-child {
-		border-right: none;
-	    }
+	.sprint-content,
+	.sprint-ticket-content,
+	.ticket-content {
+		padding: 0 1em;
 	}
 
-	thead {
-	    tr:first-child {
-		border-bottom: 1px solid $border-color;
-	    }
-	}
+	dl {
+		padding: 1em;
+		display: grid;
+		grid-template-columns: max-content auto;
 
-	tr:nth-child(even) {
-	    background-color: $alt-bg;
-	}
-    }
+		dt {
+			text-align: right;
+			font-weight: bold;
+			grid-column-start: 1;
+		}
 
-    .sprint-board {
-	overflow-x: auto;
+		dd {
+			grid-column-start: 2;
+		}
+	}
 
 	table {
-	    width: 100%;
-	}
-    }
+		border-collapse: collapse;
 
-    .chart-container {
-	margin: 1em auto;
-	position: relative;
-	width: 90vw;
-    }
+		th,
+		td {
+			border-right: 1px solid $border-color;
+
+			&:last-child {
+				border-right: none;
+			}
+		}
+
+		thead {
+			tr:first-child {
+				border-bottom: 1px solid $border-color;
+			}
+		}
+
+		tr:nth-child(even) {
+			background-color: $alt-bg;
+		}
+	}
+
+    .sprint-board {
+		overflow-x: auto;
+
+		&>table {
+			width: 100%;
+		}
+	}
+
+	.chart-container {
+		margin: 1em auto;
+		position: relative;
+		width: 90vw;
+	}
 }

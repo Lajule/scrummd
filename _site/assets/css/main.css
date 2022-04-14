@@ -163,17 +163,17 @@ body { background: #f3f7f9; color: #333333; font-family: -apple-system,BlinkMacS
 
 body .sprint > h1, body .sprint > h2, body .sprint > h3, body .sprint > h4, body .sprint > h5, body .ticket > h1, body .ticket > h2, body .ticket > h3, body .ticket > h4, body .ticket > h5 { padding: .3em; background: #fdfdfd; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; }
 
+body .sprint-content, body .sprint-ticket-content, body .ticket-content { padding: 0 1em; }
+
 body dl { padding: 1em; display: grid; grid-template-columns: max-content auto; }
 
 body dl dt { text-align: right; font-weight: bold; grid-column-start: 1; }
 
 body dl dd { grid-column-start: 2; }
 
-body .sprint-detail, body .ticket-detail { padding: 0 1em; }
-
 body table { border-collapse: collapse; }
 
-body table th, body table td { padding: .5em; border-right: 1px solid #ccc; }
+body table th, body table td { border-right: 1px solid #ccc; }
 
 body table th:last-child, body table td:last-child { border-right: none; }
 
@@ -183,7 +183,7 @@ body table tr:nth-child(even) { background-color: #fdfdfd; }
 
 body .sprint-board { overflow-x: auto; }
 
-body .sprint-board table { width: 100%; }
+body .sprint-board > table { width: 100%; }
 
 body .chart-container { margin: 1em auto; position: relative; width: 90vw; }
 

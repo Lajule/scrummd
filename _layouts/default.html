@@ -16,108 +16,71 @@
   {% assign complexity = complexity | plus: ticket.complexity %}
   {% endfor %}
   <div class="sprint" data-from="{{ page.from }}" data-to="{{ page.to }}" data-complexity="{{ complexity }}">
-  <h1>{{page.title}}</h1>
-  <dl>
-    <dt>Tickets</dt>
-    <dd>{{ sprint_tickets_size }}</dd>
-    <dt>Complexity</dt>
-    <dd>{{ complexity }}</dd>
-  </dl>
-  <div class="sprint-detail">{{ content }}</div>
-  {% if sprint_tickets_size > 0 %}
-  <div class="sprint-board">
-    <table>
-      <thead>
-        <tr>
-          <th>TO DO</th>
-          <th>DOCUMENTATION</th>
-          <th>DEVELOPEMENT</th>
-          <th>BLOCKED / WAITING QA</th>
-          <th>REVIEW</th>
-          <th>DONE</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for ticket in sprint_tickets %}
-        {% capture ticket_cell %}
-        <td class="sprint-ticket"
-          data-ref="{{ ticket.ref }}"
-          data-complexity="{{ ticket.complexity }}"
-          data-status="{{ ticket.status }}"
-          data-updated="{{ ticket.updated }}">
-          <dl>
-            <dt>Ref.</dt>
-            <dd><a href="{{ ticket.url }}">{{ticket.ref}}</a></dd>
-            <dt>Title</dt>
-            <dd>{{ ticket.title }}</dd>
-            <dt>Complexity</dt>
-            <dd>{{ ticket.complexity }}</dd>
-            <dt>Assignee</dt>
-            <dd>{{ ticket.assignee }}</dd>
-            <dt>Details</dt>
-            <dd><button>Details</button></dd>
-          </dl>
-	  <dialog>
-	    <form method="dialog">
-	      {{ ticket.content | mardownify }}
-	      <button>Close</button>
-	    </form>
-	  </dialog>
-        </td>
-        {% endcapture %}
-        <tr>
-          {% if ticket.status == "TO DO" %}
-          {{ ticket_cell }}
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          {% elsif ticket.status == "DOCUMENTATION" %}
-          <td></td>
-          {{ ticket_cell }}
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          {% elsif ticket.status == "DEVELOPEMENT" %}
-          <td></td>
-          <td></td>
-          {{ ticket_cell }}
-          <td></td>
-          <td></td>
-          <td></td>
-          {% elsif ticket.status == "BLOCKED / WAITING QA" %}
-          <td></td>
-          <td></td>
-          <td></td>
-          {{ ticket_cell }}
-          <td></td>
-          <td></td>
-          {% elsif ticket.status == "REVIEW" %}
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          {{ ticket_cell }}
-          <td></td>
-          {% elsif ticket.status == "DONE" %}
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          {{ ticket_cell }}
-          {% endif %}
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
-  <div class="chart-container">
-    <canvas id="sprint-brundown-chart"></canvas>
-  </div>
-  {% endif %}
+    <h1>{{page.title}}</h1>
+    <dl>
+      <dt>Tickets</dt>
+      <dd>{{ sprint_tickets_size }}</dd>
+      <dt>Complexity</dt>
+      <dd>{{ complexity }}</dd>
+    </dl>
+    <div class="sprint-content">{{ content }}</div>
+    {% if sprint_tickets_size > 0 %}
+      <div class="sprint-board">
+        <table>
+          <thead>
+            <tr>
+              <th>TO DO</th>
+              <th>DOCUMENTATION</th>
+              <th>DEVELOPEMENT</th>
+              <th>BLOCKED / WAITING QA</th>
+              <th>REVIEW</th>
+              <th>DONE</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for ticket in sprint_tickets %}
+          {% capture ticket_cell %}
+          <td class="sprint-ticket"
+            data-ref="{{ ticket.ref }}"
+            data-complexity="{{ ticket.complexity }}"
+            data-status="{{ ticket.status }}"
+            data-updated="{{ ticket.updated }}">
+            <dl>
+              <dt>Ref.</dt>
+              <dd><a href="{{ ticket.url }}">{{ticket.ref}}</a></dd>
+              <dt>Title</dt>
+              <dd>{{ ticket.title }}</dd>
+              <dt>Complexity</dt>
+              <dd>{{ ticket.complexity }}</dd>
+              <dt>Assignee</dt>
+              <dd>{{ ticket.assignee }}</dd>
+            </dl>
+            <div class="sprint-ticket-content">{{ ticket.content | mardownify }}</div>
+          </td>
+          {% endcapture %}
+          <tr>
+            {% if ticket.status == "TO DO" %}
+            {{ ticket_cell }}<td></td><td></td><td></td><td></td><td></td>
+            {% elsif ticket.status == "DOCUMENTATION" %}
+            <td></td>{{ ticket_cell }}<td></td><td></td><td></td><td></td>
+            {% elsif ticket.status == "DEVELOPEMENT" %}
+            <td></td><td></td>{{ ticket_cell }}<td></td><td></td><td></td>
+            {% elsif ticket.status == "BLOCKED / WAITING QA" %}
+            <td></td><td></td><td></td>{{ ticket_cell }}<td></td><td></td>
+            {% elsif ticket.status == "REVIEW" %}
+            <td></td><td></td><td></td><td></td>{{ ticket_cell }}<td></td>
+            {% elsif ticket.status == "DONE" %}
+            <td></td><td></td><td></td><td></td><td></td>{{ ticket_cell }}
+            {% endif %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="chart-container">
+      <canvas id="sprint-brundown-chart"></canvas>
+    </div>
+    {% endif %}
   </div>
 </body>
 </html>
