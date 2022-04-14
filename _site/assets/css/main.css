@@ -165,6 +165,8 @@ body .sprint > h1, body .sprint > h2, body .sprint > h3, body .sprint > h4, body
 
 body .sprint-content, body .sprint-ticket-content, body .ticket-content { padding: 0 1em; }
 
+body .sprint-content th, body .sprint-content td, body .sprint-ticket-content th, body .sprint-ticket-content td, body .ticket-content th, body .ticket-content td { padding: .3em; }
+
 body dl { padding: 1em; display: grid; grid-template-columns: max-content auto; }
 
 body dl dt { text-align: right; font-weight: bold; grid-column-start: 1; }

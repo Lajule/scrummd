@@ -17,6 +17,11 @@ body {
 	.sprint-ticket-content,
 	.ticket-content {
 		padding: 0 1em;
+
+		th,
+		td {
+			padding: .3em;
+		}
 	}
 
 	dl {
@@ -58,7 +63,7 @@ body {
 		}
 	}
 
-    .sprint-board {
+	.sprint-board {
 		overflow-x: auto;
 
 		&>table {

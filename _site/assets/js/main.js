@@ -58,16 +58,14 @@ window.addEventListener('DOMContentLoaded', function(event) {
         });
     }
 
-    window.brundown = new Chart(canvas.getContext('2d'), {
-        type: 'line',
+    const chart = new Chart(canvas.getContext('2d'), {
+	type: 'line',
         data: chartData,
         options: {
-            responsive: true
-        }
+	    responsive: true
+	}
     });
-});
 
-window.addEventListener('DOMContentLoaded', function(event) {
-
+    sprint.dispatchEvent(new CustomEvent('brundown', { chart }));
 });
 
