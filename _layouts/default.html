@@ -23,7 +23,7 @@
       <dt>Complexity</dt>
       <dd>{{ complexity }}</dd>
     </dl>
-    <div class="sprint-content">{{ content }}</div>
+    <div class="content">{{ content }}</div>
     {% if sprint_tickets_size > 0 %}
       <div class="sprint-board">
         <table>
@@ -55,7 +55,7 @@
               <dt>Assignee</dt>
               <dd>{{ ticket.assignee }}</dd>
             </dl>
-            <div class="sprint-ticket-content">{{ ticket.content | mardownify }}</div>
+            <div class="content">{{ ticket.content | mardownify }}</div>
           </td>
           {% endcapture %}
           <tr>
