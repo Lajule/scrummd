@@ -8,6 +8,10 @@ docker run --rm -v $PWD:/srv/jekyll -p 4000:4000 -p 35729:35729 jekyll/jekyll je
 
 ## Deployment
 
+```sh
+docker run --rm -p 8080:80 -v $PWD/_site:/usr/share/nginx/html:ro nginx
+```
+
 ##  How to use
 
 ### How to start a new sprint
