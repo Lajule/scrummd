@@ -161,7 +161,7 @@ template { display: none; }
 
 body { background: #f3f7f9; color: #333333; font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
 
-body .sprint > h1, body .sprint > h2, body .sprint > h3, body .sprint > h4, body .sprint > h5, body .ticket > h1, body .ticket > h2, body .ticket > h3, body .ticket > h4, body .ticket > h5 { padding: .3em; background: #fdfdfd; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; }
+body .sprints > h1, body .sprints > h2, body .sprints > h3, body .sprints > h4, body .sprints > h5, body .sprint > h1, body .sprint > h2, body .sprint > h3, body .sprint > h4, body .sprint > h5, body .ticket > h1, body .ticket > h2, body .ticket > h3, body .ticket > h4, body .ticket > h5 { padding: .3em; background: #fdfdfd; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; }
 
 body .content { padding: 0 1em; }
 

@@ -20,5 +20,31 @@ docker run --rm -p 8080:80 -v $PWD/_site:/usr/share/nginx/html:ro nginx
 
 ### How to start a new sprint
 
+```sh
+echo "---
+layout: sprint
+title: "First sprint"
+from: 2022-12-01
+to: 2022-12-15
+---
+Add sprint description here.
+" >first-sprint.md
+```
+
 ### How to add a ticket
 
+```sh
+echo "---
+layout: ticket
+ref: TIC-003
+title: Ticket title goes here
+complexity: 8
+assignee: John McLane
+sprint: "First sprint"
+status: "TODO"
+created: 2022-11-15
+updated: 2022-12-06
+---
+Ticket description goes here.
+" >TIC-003.md
+```

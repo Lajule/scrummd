@@ -3,209 +3,51 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
-  <title>First sprint - Srummd</title>
+  <title>All sprints - Srummd</title>
   <link rel="stylesheet" href="/assets/css/main.css">
-  <script src="/assets/js/chart.min.js"></script>
-  <script src="/assets/js/main.js"></script>
 </head>
 <body>
-  
-  
-  
-  
-  <div class="sprint" data-from="2022-12-01" data-to="2022-12-15" data-complexity="15">
-    <h1>First sprint</h1>
-    <dl>
-      <dt>Tickets</dt>
-      <dd>4</dd>
-      <dt>Complexity</dt>
-      <dd>15</dd>
-    </dl>
-    <div class="content"><p>Add sprint description here.</p>
-
-<h2 id="more-details">More details</h2>
-
-<p>You can add more details.</p>
+  <div class="sprints">
+    <h1>All sprints</h1>
+    <div class="content"><p>You can add some content here.</p>
 </div>
-    
-      <div class="sprint-board">
-        <table>
-          <thead>
-            <tr>
-              <th>TO DO</th>
-              <th>DOCUMENTATION</th>
-              <th>DEVELOPEMENT</th>
-              <th>BLOCKED / WAITING QA</th>
-              <th>REVIEW</th>
-              <th>DONE</th>
-            </tr>
-          </thead>
-          <tbody>
-          
-          
-          <tr>
-            
-            
-          <td class="sprint-ticket"
-            data-ref="TIC-001"
-            data-complexity="2"
-            data-status="TO DO"
-            data-updated="2022-12-01">
-            <dl>
-              <dt>Ref.</dt>
-              <dd><a href="/tickets/TIC-001.html">TIC-001</a></dd>
-              <dt>Title</dt>
-              <dd>Ticket title goes here</dd>
-              <dt>Complexity</dt>
-              <dd>2</dd>
-              <dt>Assignee</dt>
-              <dd>John Doe</dd>
-            </dl>
-            <div class="content"><p>Ticket description goes here.</p>
-
-<h3 id="add-title">Add title</h3>
-
-<p>You can add lists:</p>
-
-<ul>
-  <li>Item 1</li>
-  <li>Item 2</li>
-</ul>
-
-<p>Or tables:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Col 1</th>
-      <th>Col 2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Cell 1</td>
-      <td>Cell 2</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p>Add some comments.</p>
-</blockquote>
-
-<p>Add code snipets:</p>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">hello</span><span class="p">()</span> <span class="p">{</span>
-     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-</div>
-          </td>
-          <td></td><td></td><td></td><td></td><td></td>
-            
-          </tr>
-          
-          
-          <tr>
-            
-            <td></td><td></td><td></td><td></td><td></td>
-          <td class="sprint-ticket"
-            data-ref="TIC-002"
-            data-complexity="4"
-            data-status="DONE"
-            data-updated="2022-12-03">
-            <dl>
-              <dt>Ref.</dt>
-              <dd><a href="/tickets/TIC-002.html">TIC-002</a></dd>
-              <dt>Title</dt>
-              <dd>Ticket title goes here</dd>
-              <dt>Complexity</dt>
-              <dd>4</dd>
-              <dt>Assignee</dt>
-              <dd>John Ranbo</dd>
-            </dl>
-            <div class="content"><p>Ticket description goes here.</p>
-
-<h3 id="add-title">Add title</h3>
-
-<p>You can add checklists:</p>
-
-<ul class="task-list">
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />toto</li>
-  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />tutu</li>
-</ul>
-
-<p>Add code snipets:</p>
-
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">hello</span><span class="p">()</span> <span class="p">{</span>
-     <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-</div>
-          </td>
-          
-            
-          </tr>
-          
-          
-          <tr>
-            
-            <td></td><td></td><td></td><td></td><td></td>
-          <td class="sprint-ticket"
-            data-ref="TIC-003"
-            data-complexity="8"
-            data-status="DONE"
-            data-updated="2022-12-06">
-            <dl>
-              <dt>Ref.</dt>
-              <dd><a href="/tickets/TIC-003.html">TIC-003</a></dd>
-              <dt>Title</dt>
-              <dd>Ticket title goes here</dd>
-              <dt>Complexity</dt>
-              <dd>8</dd>
-              <dt>Assignee</dt>
-              <dd>John McLane</dd>
-            </dl>
-            <div class="content"><p>Ticket description goes here.</p>
-</div>
-          </td>
-          
-            
-          </tr>
-          
-          
-          <tr>
-            
-            <td></td><td></td>
-          <td class="sprint-ticket"
-            data-ref="TIC-004"
-            data-complexity="1"
-            data-status="DEVELOPEMENT"
-            data-updated="2022-12-03">
-            <dl>
-              <dt>Ref.</dt>
-              <dd><a href="/tickets/TIC-004.html">TIC-004</a></dd>
-              <dt>Title</dt>
-              <dd>Ticket title goes here</dd>
-              <dt>Complexity</dt>
-              <dd>1</dd>
-              <dt>Assignee</dt>
-              <dd>John Ranbo</dd>
-            </dl>
-            <div class="content"><p>Ticket description goes here.</p>
-</div>
-          </td>
-          <td></td><td></td><td></td>
-            
-          </tr>
-          
-        </tbody>
-      </table>
-    </div>
-    <div class="chart-container">
-      <canvas id="sprint-brundown-chart"></canvas>
-    </div>
-    
+    <ul>
+      
+      
+      <li>
+	<a href="/another-one.html">Another one</a>
+	<ul>
+	  
+	  
+	</ul>
+      </li>
+      
+      
+      
+      <li>
+	<a href="/first-sprint.html">First sprint</a>
+	<ul>
+	  
+	  
+	  <li><a href="/tickets/TIC-001.html">TIC-001</a></li>
+	  
+	  <li><a href="/tickets/TIC-002.html">TIC-002</a></li>
+	  
+	  <li><a href="/tickets/TIC-003.html">TIC-003</a></li>
+	  
+	  <li><a href="/tickets/TIC-004.html">TIC-004</a></li>
+	  
+	</ul>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
   </div>
 </body>
 </html>
