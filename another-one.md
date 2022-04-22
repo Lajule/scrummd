@@ -4,4 +4,4 @@ title: "Another one"
 from: 2023-01-01
 to: 2023-01-15
 ---
-Add sprint description here.
+Sprint description goes here.

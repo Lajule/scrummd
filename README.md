@@ -1,6 +1,6 @@
 # scrummd
 
-Hand-craft your scrum board !
+Hand-craft your scrum board ! A [Jekyll][1] site to build your scrum board.
 
 ```sh
 docker run --rm -v $PWD:/srv/jekyll jekyll/jekyll jekyll build
@@ -27,7 +27,7 @@ title: "First sprint"
 from: 2022-12-01
 to: 2022-12-15
 ---
-Add sprint description here.
+Sprint description goes here.
 " >first-sprint.md
 ```
 
@@ -46,5 +46,7 @@ created: 2022-11-15
 updated: 2022-12-06
 ---
 Ticket description goes here.
-" >TIC-003.md
+" >_tickets/TIC-003.md
 ```
+
+[1]: https://jekyllrb.com/
