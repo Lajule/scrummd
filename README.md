@@ -1,6 +1,8 @@
-# scrummd
+# Scrummd
 
-Hand-craft your scrum board ! A [Jekyll][1] site to build your scrum board.
+Hand-craft your scrum board !
+
+Scrummd is a [Jekyll][1] skeleton to build a scrum board. Create sprints and tickets with simple markdown files, generate the website and it's done !
 
 ```sh
 docker run --rm -v $PWD:/srv/jekyll jekyll/jekyll jekyll build
