@@ -36,7 +36,7 @@
               <th>TO DO</th>
               <th>DOCUMENTATION</th>
               <th>DEVELOPEMENT</th>
-              <th>BLOCKED / WAITING QA</th>
+              <th>BLOCKED</th>
               <th>REVIEW</th>
               <th>DONE</th>
             </tr>
@@ -69,7 +69,7 @@
             <td></td>{{ ticket_cell }}<td></td><td></td><td></td><td></td>
             {% elsif ticket.status == "DEVELOPEMENT" %}
             <td></td><td></td>{{ ticket_cell }}<td></td><td></td><td></td>
-            {% elsif ticket.status == "BLOCKED / WAITING QA" %}
+            {% elsif ticket.status == "BLOCKED" %}
             <td></td><td></td><td></td>{{ ticket_cell }}<td></td><td></td>
             {% elsif ticket.status == "REVIEW" %}
             <td></td><td></td><td></td><td></td>{{ ticket_cell }}<td></td>
