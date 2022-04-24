@@ -62,8 +62,8 @@ window.addEventListener('DOMContentLoaded', function(event) {
 	type: 'line',
         data: chartData,
         options: {
-	    responsive: true
-	}
+	        responsive: true
+	    }
     });
 
     sprint.dispatchEvent(new CustomEvent('brundown', { chart }));
