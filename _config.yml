@@ -6,3 +6,5 @@ collections:
     output: true
 exclude:
   - README.md
+  - Board.md
+  - Brundown.md
