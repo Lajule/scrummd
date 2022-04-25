@@ -7,4 +7,4 @@ collections:
 exclude:
   - README.md
   - Board.md
-  - Brundown.md
+  - Burndown.md
