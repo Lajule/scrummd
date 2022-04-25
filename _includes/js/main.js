@@ -59,11 +59,11 @@ window.addEventListener('DOMContentLoaded', function(event) {
     }
 
     const chart = new Chart(canvas.getContext('2d'), {
-	type: 'line',
+        type: 'line',
         data: chartData,
         options: {
 	        responsive: true
-	    }
+        }
     });
 
     sprint.dispatchEvent(new CustomEvent('brundown', { chart }));
