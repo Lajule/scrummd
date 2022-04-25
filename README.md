@@ -2,6 +2,9 @@
 
 Hand-craft your scrum board !
 
+[board](https://github.com/Lajule/scrummd/blob/master/board.png)
+[burndown](https://github.com/Lajule/scrummd/blob/master/burndown.png)
+
 Scrummd is a [Jekyll][1] skeleton to build a scrum boards. Create sprints and tickets with simple markdown files, generate the website and it's done !
 
 ```sh
