@@ -7,13 +7,23 @@ Hand-craft your scrum board !
 
 Scrummd is a [Jekyll][1] skeleton to build a scrum boards. Create sprints and tickets with simple markdown files, generate the website and it's done !
 
+## Build
+
+To generate the website, use:
+
 ```sh
 docker run --rm -v $PWD:/srv/jekyll jekyll/jekyll jekyll build
 ```
 
+Visit `_site` directory to check generated files.
+
+During development, you can use:
+
 ```sh
 docker run --rm -v $PWD:/srv/jekyll -p 4000:4000 -p 35729:35729 jekyll/jekyll jekyll serve --verbose --livereload
 ```
+
+Visit `http://localhost:4000` to see your scrum board in live.
 
 ## Deployment
 
