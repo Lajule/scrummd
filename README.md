@@ -20,12 +20,17 @@ Visit `_site` directory to check generated files.
 During development, you can use:
 
 ```sh
-docker run --rm -v $PWD:/srv/jekyll -p 4000:4000 -p 35729:35729 jekyll/jekyll jekyll serve --verbose --livereload
+docker run -rm \
+       -v $PWD:/srv/jekyll \
+       -p 4000:4000 -p 35729:35729 \
+       jekyll/jekyll jekyll serve --verbose --livereload
 ```
 
 Visit `http://localhost:4000` to see your scrum board in live.
 
 ## Deployment
+
+Just copy the content of the `_site` directory to the document root of you favorite web server. Following command can be used to start an nginx container:
 
 ```sh
 docker run --rm -p 8080:80 -v $PWD/_site:/usr/share/nginx/html:ro nginx
