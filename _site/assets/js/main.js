@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', function(event) {
     const sprint = document.querySelector('.sprint');
-    const tickets = sprint.querySelectorAll('.sprint-ticket');
+    const tickets = sprint.querySelectorAll('.sprint-board-ticket');
     const canvas = document.getElementById('sprint-brundown-chart');
 
     let complexity = parseInt(sprint.dataset.complexity, 10);
@@ -59,11 +59,11 @@ window.addEventListener('DOMContentLoaded', function(event) {
     }
 
     const chart = new Chart(canvas.getContext('2d'), {
-	type: 'line',
+        type: 'line',
         data: chartData,
         options: {
-	        responsive: true
-	    }
+            responsive: true
+        }
     });
 
     sprint.dispatchEvent(new CustomEvent('brundown', { chart }));

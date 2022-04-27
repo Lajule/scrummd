@@ -28,25 +28,25 @@
     <div class="content"><p>Sprint description goes here.</p>
 </div>
     
-      <div class="sprint-board">
-        <table>
-          <thead>
-            <tr>
-              <th>TO DO</th>
-              <th>DOCUMENTATION</th>
-              <th>DEVELOPEMENT</th>
-              <th>BLOCKED</th>
-              <th>REVIEW</th>
-              <th>DONE</th>
-            </tr>
-          </thead>
-          <tbody>
+    <div class="sprint-board-container">
+      <table class="sprint-board">
+        <thead>
+          <tr>
+            <th class="sprint-board-column">TO DO</th>
+            <th class="sprint-board-column">DOCUMENTATION</th>
+            <th class="sprint-board-column">DEVELOPEMENT</th>
+            <th class="sprint-board-column">BLOCKED</th>
+            <th class="sprint-board-column">REVIEW</th>
+            <th class="sprint-board-column">DONE</th>
+          </tr>
+        </thead>
+        <tbody>
           
           
           <tr>
             
             
-          <td class="sprint-ticket"
+          <td class="sprint-board-ticket"
             data-ref="TIC-001"
             data-complexity="2"
             data-status="TO DO"
@@ -120,7 +120,7 @@
           <tr>
             
             <td></td><td></td><td></td><td></td><td></td>
-          <td class="sprint-ticket"
+          <td class="sprint-board-ticket"
             data-ref="TIC-002"
             data-complexity="4"
             data-status="DONE"
@@ -146,7 +146,7 @@
           <tr>
             
             <td></td><td></td><td></td><td></td><td></td>
-          <td class="sprint-ticket"
+          <td class="sprint-board-ticket"
             data-ref="TIC-003"
             data-complexity="8"
             data-status="DONE"
@@ -172,7 +172,7 @@
           <tr>
             
             <td></td><td></td>
-          <td class="sprint-ticket"
+          <td class="sprint-board-ticket"
             data-ref="TIC-004"
             data-complexity="1"
             data-status="DEVELOPEMENT"
@@ -197,7 +197,7 @@
         </tbody>
       </table>
     </div>
-    <div class="chart-container">
+    <div class="sprint-brundown-chart-container">
       <canvas id="sprint-brundown-chart"></canvas>
     </div>
     

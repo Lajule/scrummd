@@ -161,12 +161,6 @@ template { display: none; }
 
 body { background: #f3f7f9; color: #333333; font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
 
-body .sprints > h1, body .sprints > h2, body .sprints > h3, body .sprints > h4, body .sprints > h5, body .sprint > h1, body .sprint > h2, body .sprint > h3, body .sprint > h4, body .sprint > h5, body .ticket > h1, body .ticket > h2, body .ticket > h3, body .ticket > h4, body .ticket > h5 { padding: .3em; background: #fdfdfd; }
-
-body .content { padding: 0 1em; }
-
-body .content th, body .content td { padding: .3em; }
-
 body dl { padding: 1em; display: grid; grid-template-columns: max-content auto; }
 
 body dl dt { padding-right: 1em; text-align: right; font-weight: bold; grid-column-start: 1; }
@@ -175,18 +169,26 @@ body dl dd { grid-column-start: 2; }
 
 body table { border-collapse: collapse; }
 
+body table thead tr:first-child { border-bottom: 1px solid #ccc; }
+
 body table th, body table td { border-right: 1px solid #ccc; }
 
 body table th:last-child, body table td:last-child { border-right: none; }
 
-body table thead tr:first-child { border-bottom: 1px solid #ccc; }
+body .sprints > h1, body .sprint > h1, body .ticket > h1 { padding: .3em; background: #fdfdfd; }
 
-body table tr:nth-child(even) { background-color: #fdfdfd; }
+body .sprints .content, body .sprint .content, body .ticket .content { padding: 0 1em; }
 
-body .sprint-board { overflow-x: auto; }
+body .sprints .content table tr:nth-child(even), body .sprint .content table tr:nth-child(even), body .ticket .content table tr:nth-child(even) { background-color: #f3f7f9; }
 
-body .sprint-board > table { width: 100%; }
+body .sprint-board-container { overflow-x: auto; }
 
-body .chart-container { margin: 1em auto; position: relative; width: 90vw; }
+body .sprint-board-container .sprint-board { width: 100%; }
+
+body .sprint-board-container .sprint-board .sprint-board-column { width: calc(100% / 6); min-width: 300px; }
+
+body .sprint-board-container .sprint-board tr:nth-child(even) { background-color: #fdfdfd; }
+
+body .sprint-brundown-chart-container { margin: 1em auto; position: relative; width: 90vw; }
 
 /*# sourceMappingURL=main.css.map */

@@ -29,22 +29,22 @@
     </dl>
     <div class="content">{{ content }}</div>
     {% if sprint_tickets_size > 0 %}
-      <div class="sprint-board">
-        <table>
-          <thead>
-            <tr>
-              <th>TO DO</th>
-              <th>DOCUMENTATION</th>
-              <th>DEVELOPEMENT</th>
-              <th>BLOCKED</th>
-              <th>REVIEW</th>
-              <th>DONE</th>
-            </tr>
-          </thead>
-          <tbody>
+    <div class="sprint-board-container">
+      <table class="sprint-board">
+        <thead>
+          <tr>
+            <th class="sprint-board-column">TO DO</th>
+            <th class="sprint-board-column">DOCUMENTATION</th>
+            <th class="sprint-board-column">DEVELOPEMENT</th>
+            <th class="sprint-board-column">BLOCKED</th>
+            <th class="sprint-board-column">REVIEW</th>
+            <th class="sprint-board-column">DONE</th>
+          </tr>
+        </thead>
+        <tbody>
           {% for ticket in sprint_tickets %}
           {% capture ticket_cell %}
-          <td class="sprint-ticket"
+          <td class="sprint-board-ticket"
             data-ref="{{ ticket.ref }}"
             data-complexity="{{ ticket.complexity }}"
             data-status="{{ ticket.status }}"
@@ -81,7 +81,7 @@
         </tbody>
       </table>
     </div>
-    <div class="chart-container">
+    <div class="sprint-brundown-chart-container">
       <canvas id="sprint-brundown-chart"></canvas>
     </div>
     {% endif %}

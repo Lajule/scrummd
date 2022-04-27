@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', function(event) {
     const sprint = document.querySelector('.sprint');
-    const tickets = sprint.querySelectorAll('.sprint-ticket');
+    const tickets = sprint.querySelectorAll('.sprint-board-ticket');
     const canvas = document.getElementById('sprint-brundown-chart');
 
     let complexity = parseInt(sprint.dataset.complexity, 10);

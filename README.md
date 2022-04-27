@@ -20,7 +20,7 @@ Visit `_site` directory to check generated files.
 During development, you can use:
 
 ```sh
-docker run -rm \
+docker run --rm \
        -v $PWD:/srv/jekyll \
        -p 4000:4000 -p 35729:35729 \
        jekyll/jekyll jekyll serve --verbose --livereload

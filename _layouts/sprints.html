@@ -15,12 +15,12 @@
       {% if sprint.title and sprint.from and sprint.to %}
       <li>
         <a href="{{ sprint.url }}">{{ sprint.title }}</a>
-	      <ul>
-	        {% assign sprint_tickets = site.tickets | where: "sprint", sprint.title %}
-	        {% for ticket in sprint_tickets %}
-	        <li><a href="{{ ticket.url }}">{{ ticket.ref }}</a></li>
-	        {% endfor %}
-	      </ul>
+        <ul>
+          {% assign sprint_tickets = site.tickets | where: "sprint", sprint.title %}
+          {% for ticket in sprint_tickets %}
+          <li><a href="{{ ticket.url }}">{{ ticket.ref }}</a></li>
+          {% endfor %}
+        </ul>
       </li>
       {% endif %}
       {% endfor %}
