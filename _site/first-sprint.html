@@ -13,31 +13,36 @@
   
   
   
-  <div class="sprint" data-from="2022-12-01" data-to="2022-12-15" data-complexity="15">
-    <h1>First sprint</h1>
-    <dl>
-      <dt>Tickets</dt>
-      <dd>4</dd>
-      <dt>Complexity</dt>
-      <dd>15</dd>
-      <dt>From</dt>
-      <dd>2022-12-01</dd>
-      <dt>To</dt>
-      <dd>2022-12-15</dd>
-    </dl>
+  <div class="container is-fluid sprint" data-from="2022-12-01" data-to="2022-12-15" data-complexity="15">
+    <h1 class="title">First sprint</h1>
+    <h4 class="subtitle">From <strong>2022-12-01</strong> to <strong>2022-12-15</strong></h4>
+    <nav class="level">
+      <div class="level-item has-text-centered">
+        <div>
+          <p class="heading">Tickets</p>
+          <p class="title">4</p>
+        </div>
+      </div>
+      <div class="level-item has-text-centered">
+        <div>
+          <p class="heading">Complexity</p>
+          <p class="title">15</p>
+        </div>
+      </div>
+    </nav>
     <div class="content"><p>Sprint description goes here.</p>
 </div>
     
-    <div class="sprint-board-container">
-      <table class="sprint-board">
+    <div class="table-container">
+      <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
         <thead>
           <tr>
-            <th class="sprint-board-column">TO DO</th>
-            <th class="sprint-board-column">DOCUMENTATION</th>
-            <th class="sprint-board-column">DEVELOPEMENT</th>
-            <th class="sprint-board-column">BLOCKED</th>
-            <th class="sprint-board-column">REVIEW</th>
-            <th class="sprint-board-column">DONE</th>
+            <th>TO DO</th>
+            <th>DOCUMENTATION</th>
+            <th>DEVELOPEMENT</th>
+            <th>BLOCKED</th>
+            <th>REVIEW</th>
+            <th>DONE</th>
           </tr>
         </thead>
         <tbody>
@@ -46,7 +51,7 @@
           <tr>
             
             
-          <td class="sprint-board-ticket"
+          <td class="ticket"
             data-ref="TIC-001"
             data-complexity="2"
             data-status="TO DO"
@@ -86,6 +91,10 @@
       <td>Cell 1</td>
       <td>Cell 2</td>
     </tr>
+    <tr>
+      <td>Cell 1</td>
+      <td>Cell 2</td>
+    </tr>
   </tbody>
 </table>
 
@@ -120,7 +129,7 @@
           <tr>
             
             <td></td><td></td><td></td><td></td><td></td>
-          <td class="sprint-board-ticket"
+          <td class="ticket"
             data-ref="TIC-002"
             data-complexity="4"
             data-status="DONE"
@@ -146,7 +155,7 @@
           <tr>
             
             <td></td><td></td><td></td><td></td><td></td>
-          <td class="sprint-board-ticket"
+          <td class="ticket"
             data-ref="TIC-003"
             data-complexity="8"
             data-status="DONE"
@@ -172,7 +181,7 @@
           <tr>
             
             <td></td><td></td>
-          <td class="sprint-board-ticket"
+          <td class="ticket"
             data-ref="TIC-004"
             data-complexity="1"
             data-status="DEVELOPEMENT"
@@ -197,10 +206,15 @@
         </tbody>
       </table>
     </div>
-    <div class="sprint-brundown-chart-container">
-      <canvas id="sprint-brundown-chart"></canvas>
-    </div>
+    <canvas id="chart"></canvas>
     
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          Powered by <strong>Scrummd</strong>.
+        </p>
+      </div>
+    </footer>
   </div>
 </body>
 </html>

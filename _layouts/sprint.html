@@ -15,36 +15,41 @@
   {% for ticket in sprint_tickets %}
   {% assign complexity = complexity | plus: ticket.complexity %}
   {% endfor %}
-  <div class="sprint" data-from="{{ page.from }}" data-to="{{ page.to }}" data-complexity="{{ complexity }}">
-    <h1>{{page.title}}</h1>
-    <dl>
-      <dt>Tickets</dt>
-      <dd>{{ sprint_tickets_size }}</dd>
-      <dt>Complexity</dt>
-      <dd>{{ complexity }}</dd>
-      <dt>From</dt>
-      <dd>{{ page.from }}</dd>
-      <dt>To</dt>
-      <dd>{{ page.to }}</dd>
-    </dl>
+  <div class="container is-fluid sprint" data-from="{{ page.from }}" data-to="{{ page.to }}" data-complexity="{{ complexity }}">
+    <h1 class="title">{{page.title}}</h1>
+    <h4 class="subtitle">From <strong>{{ page.from }}</strong> to <strong>{{ page.to }}</strong></h4>
+    <nav class="level">
+      <div class="level-item has-text-centered">
+        <div>
+          <p class="heading">Tickets</p>
+          <p class="title">{{ sprint_tickets_size }}</p>
+        </div>
+      </div>
+      <div class="level-item has-text-centered">
+        <div>
+          <p class="heading">Complexity</p>
+          <p class="title">{{ complexity }}</p>
+        </div>
+      </div>
+    </nav>
     <div class="content">{{ content }}</div>
     {% if sprint_tickets_size > 0 %}
-    <div class="sprint-board-container">
-      <table class="sprint-board">
+    <div class="table-container">
+      <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
         <thead>
           <tr>
-            <th class="sprint-board-column">TO DO</th>
-            <th class="sprint-board-column">DOCUMENTATION</th>
-            <th class="sprint-board-column">DEVELOPEMENT</th>
-            <th class="sprint-board-column">BLOCKED</th>
-            <th class="sprint-board-column">REVIEW</th>
-            <th class="sprint-board-column">DONE</th>
+            <th>TO DO</th>
+            <th>DOCUMENTATION</th>
+            <th>DEVELOPEMENT</th>
+            <th>BLOCKED</th>
+            <th>REVIEW</th>
+            <th>DONE</th>
           </tr>
         </thead>
         <tbody>
           {% for ticket in sprint_tickets %}
           {% capture ticket_cell %}
-          <td class="sprint-board-ticket"
+          <td class="ticket"
             data-ref="{{ ticket.ref }}"
             data-complexity="{{ ticket.complexity }}"
             data-status="{{ ticket.status }}"
@@ -81,10 +86,15 @@
         </tbody>
       </table>
     </div>
-    <div class="sprint-brundown-chart-container">
-      <canvas id="sprint-brundown-chart"></canvas>
-    </div>
+    <canvas id="chart"></canvas>
     {% endif %}
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          Powered by <strong>Scrummd</strong>.
+        </p>
+      </div>
+    </footer>
   </div>
 </body>
 </html>
