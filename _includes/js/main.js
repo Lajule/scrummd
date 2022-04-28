@@ -21,22 +21,22 @@ window.addEventListener('DOMContentLoaded', function(event) {
         datasets: [{
                 label: "Ideal",
                 data: [],
-                borderColor: '#1E2224',
-                backgroundColor: '#1E2224'
+                borderColor: 'hsl(171, 100%, 41%)',
+                backgroundColor: 'hsl(171, 100%, 41%)'
             },
             {
                 label: "Completed",
                 data: [],
                 stepped: true,
-                borderColor: '#6ac174',
-                backgroundColor: '#6ac174'
+                borderColor: 'hsl(204, 86%, 53%)',
+                backgroundColor: 'hsl(204, 86%, 53%)'
             }
         ]
     };
 
-    const to = new Date(sprint.dataset.to);
-    for (const from = new Date(sprint.dataset.from); from <= to; from.setDate(from.getDate() + 1)) {
-        chartData.labels.push(from.toLocaleDateString());
+    const end = new Date(sprint.dataset.end);
+    for (const start = new Date(sprint.dataset.start); start <= end; start.setDate(start.getDate() + 1)) {
+        chartData.labels.push(start.toLocaleDateString());
     }
 
     chartData.datasets[0].data = [{

@@ -4,33 +4,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
   <title>{{ page.ref }} - {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ "/assets/css/bulma.min.css" | relative_url }}">
   <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
 </head>
 <body>
-  <div class="ticket">
-    <h1>{{page.ref}} - {{page.title}}</h1>
-    <dl>
-      <dt>Ref.</dt>
-      <dd>{{page.ref}}</dd>
-      <dt>Title</dt>
-      <dd>{{ page.title }}</dd>
-      <dt>Complexity</dt>
-      <dd>{{ page.complexity }}</dd>
-      <dt>Assignee</dt>
-      <dd>{{ page.assignee }}</dd>
-      <dt>Sprint</dt>
-      {% assign sprint = site.pages | find: "title", page.sprint %}
-      {% if sprint %}
-      <dd><a href="{{ sprint.url }}">{{ sprint.title }}</a></dd>
-      {% else %}
-      <dd>{{ page.sprint }}</dd>
-      {% endif %}
-      <dt>Created</dt>
-      <dd>{{ page.created }}</dd>
-      <dt>Updated</dt>
-      <dd>{{ page.updated }}</dd>
-    </dl>
+  <div class="container is-fluid ticket">
+    <section class="hero">
+      <div class="hero-body">
+  <p class="title">
+      {{page.ref}} - {{page.title}}
+  </p>
+  <p class="subtitle">
+    {% assign sprint = site.pages | find: "title", page.sprint %}
+    {% if sprint %}
+    <a href="{{ sprint.url }}">{{ sprint.title }}</a>
+    {% else %}
+    {{ page.sprint }}
+    {% endif %}
+  </p>
+      </div>
+    </section>
+    <nav class="level">
+      <div class="level-item has-text-centered">
+        <div>
+          <p class="heading">Complexity</p>
+          <p class="title">{{ page.complexity }}</p>
+        </div>
+      </div>
+      <div class="level-item has-text-centered">
+        <div>
+          <p class="heading">Assignee</p>
+          <p class="title">{{ page.assignee }}</p>
+        </div>
+      </div>
+      <div class="level-item has-text-centered">
+        <div>
+          <p class="heading">Status</p>
+          <p class="title">{{ page.status }}</p>
+        </div>
+      </div>
+      <div class="level-item has-text-centered">
+        <div>
+          <p class="heading">Created</p>
+          <p class="title">{{ page.created | date: "%a, %b %d, %y" }}</p>
+        </div>
+      </div>
+      <div class="level-item has-text-centered">
+        <div>
+          <p class="heading">Updated</p>
+          <p class="title">{{ page.updated | date: "%a, %b %d, %y" }}</p>
+        </div>
+      </div>
+    </nav>
     <div class="content">{{ content }}</div>
-  </div>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          Powered by <strong>Scrummd</strong>.
+        </p>
+      </div>
+    </footer>
+   </div>
 </body>
 </html>

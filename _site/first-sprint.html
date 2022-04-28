@@ -4,6 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
   <title>First sprint - Srummd</title>
+  <link rel="stylesheet" href="/assets/css/bulma.min.css">
   <link rel="stylesheet" href="/assets/css/main.css">
   <script src="/assets/js/chart.min.js"></script>
   <script src="/assets/js/main.js"></script>
@@ -13,14 +14,30 @@
   
   
   
-  <div class="container is-fluid sprint" data-from="2022-12-01" data-to="2022-12-15" data-complexity="15">
-    <h1 class="title">First sprint</h1>
-    <h4 class="subtitle">From <strong>2022-12-01</strong> to <strong>2022-12-15</strong></h4>
+  <div class="container is-fluid sprint" data-start="2022-12-01" data-end="2022-12-15" data-complexity="15">
+    <section class="hero">
+      <div class="hero-body">
+  <p class="title">
+      First sprint
+  </p>
+  <p class="subtitle">
+    
+    4 tickets
+    
+  </p>
+      </div>
+    </section>
     <nav class="level">
       <div class="level-item has-text-centered">
         <div>
-          <p class="heading">Tickets</p>
-          <p class="title">4</p>
+          <p class="heading">Start</p>
+          <p class="title">Thu, Dec 01, 22</p>
+        </div>
+      </div>
+      <div class="level-item has-text-centered">
+        <div>
+          <p class="heading">End</p>
+          <p class="title">Thu, Dec 15, 22</p>
         </div>
       </div>
       <div class="level-item has-text-centered">
@@ -52,20 +69,26 @@
             
             
           <td class="ticket"
-            data-ref="TIC-001"
-            data-complexity="2"
-            data-status="TO DO"
-            data-updated="2022-12-01">
-            <dl>
-              <dt>Ref.</dt>
-              <dd><a href="/tickets/TIC-001.html">TIC-001</a></dd>
-              <dt>Title</dt>
-              <dd>Ticket title goes here</dd>
-              <dt>Complexity</dt>
-              <dd>2</dd>
-              <dt>Assignee</dt>
-              <dd>John Doe</dd>
-            </dl>
+              data-ref="TIC-001"
+              data-complexity="2"
+              data-status="TO DO"
+              data-updated="2022-12-01">
+      <h5 class="title is-5">Ticket title goes here</h5>
+      <h6 class="subtitle is-6"><a href="/tickets/TIC-001.html">TIC-001</a></h6>
+      <div class="field is-grouped is-grouped-multiline">
+        <div class="control">
+  	<div class="tags has-addons">
+  	  <span class="tag is-dark">Complexity</span>
+  	  <span class="tag is-info">2</span>
+  	</div>
+        </div>
+        <div class="control">
+  	<div class="tags has-addons">
+  	  <span class="tag is-dark">Assignee</span>
+  	  <span class="tag is-info">John Doe</span>
+  	</div>
+        </div>
+      </div>
             <div class="content"><p>Ticket description goes here.</p>
 
 <h2 id="add-title">Add title</h2>
@@ -130,20 +153,26 @@
             
             <td></td><td></td><td></td><td></td><td></td>
           <td class="ticket"
-            data-ref="TIC-002"
-            data-complexity="4"
-            data-status="DONE"
-            data-updated="2022-12-03">
-            <dl>
-              <dt>Ref.</dt>
-              <dd><a href="/tickets/TIC-002.html">TIC-002</a></dd>
-              <dt>Title</dt>
-              <dd>Ticket title goes here</dd>
-              <dt>Complexity</dt>
-              <dd>4</dd>
-              <dt>Assignee</dt>
-              <dd>John Ranbo</dd>
-            </dl>
+              data-ref="TIC-002"
+              data-complexity="4"
+              data-status="DONE"
+              data-updated="2022-12-03">
+      <h5 class="title is-5">Ticket title goes here</h5>
+      <h6 class="subtitle is-6"><a href="/tickets/TIC-002.html">TIC-002</a></h6>
+      <div class="field is-grouped is-grouped-multiline">
+        <div class="control">
+  	<div class="tags has-addons">
+  	  <span class="tag is-dark">Complexity</span>
+  	  <span class="tag is-info">4</span>
+  	</div>
+        </div>
+        <div class="control">
+  	<div class="tags has-addons">
+  	  <span class="tag is-dark">Assignee</span>
+  	  <span class="tag is-info">John Ranbo</span>
+  	</div>
+        </div>
+      </div>
             <div class="content"><p>Ticket description goes here.</p>
 </div>
           </td>
@@ -156,20 +185,26 @@
             
             <td></td><td></td><td></td><td></td><td></td>
           <td class="ticket"
-            data-ref="TIC-003"
-            data-complexity="8"
-            data-status="DONE"
-            data-updated="2022-12-06">
-            <dl>
-              <dt>Ref.</dt>
-              <dd><a href="/tickets/TIC-003.html">TIC-003</a></dd>
-              <dt>Title</dt>
-              <dd>Ticket title goes here</dd>
-              <dt>Complexity</dt>
-              <dd>8</dd>
-              <dt>Assignee</dt>
-              <dd>John McLane</dd>
-            </dl>
+              data-ref="TIC-003"
+              data-complexity="8"
+              data-status="DONE"
+              data-updated="2022-12-06">
+      <h5 class="title is-5">Ticket title goes here</h5>
+      <h6 class="subtitle is-6"><a href="/tickets/TIC-003.html">TIC-003</a></h6>
+      <div class="field is-grouped is-grouped-multiline">
+        <div class="control">
+  	<div class="tags has-addons">
+  	  <span class="tag is-dark">Complexity</span>
+  	  <span class="tag is-info">8</span>
+  	</div>
+        </div>
+        <div class="control">
+  	<div class="tags has-addons">
+  	  <span class="tag is-dark">Assignee</span>
+  	  <span class="tag is-info">John McLane</span>
+  	</div>
+        </div>
+      </div>
             <div class="content"><p>Ticket description goes here.</p>
 </div>
           </td>
@@ -182,20 +217,26 @@
             
             <td></td><td></td>
           <td class="ticket"
-            data-ref="TIC-004"
-            data-complexity="1"
-            data-status="DEVELOPEMENT"
-            data-updated="2022-12-03">
-            <dl>
-              <dt>Ref.</dt>
-              <dd><a href="/tickets/TIC-004.html">TIC-004</a></dd>
-              <dt>Title</dt>
-              <dd>Ticket title goes here</dd>
-              <dt>Complexity</dt>
-              <dd>1</dd>
-              <dt>Assignee</dt>
-              <dd>John Ranbo</dd>
-            </dl>
+              data-ref="TIC-004"
+              data-complexity="1"
+              data-status="DEVELOPEMENT"
+              data-updated="2022-12-03">
+      <h5 class="title is-5">Ticket title goes here</h5>
+      <h6 class="subtitle is-6"><a href="/tickets/TIC-004.html">TIC-004</a></h6>
+      <div class="field is-grouped is-grouped-multiline">
+        <div class="control">
+  	<div class="tags has-addons">
+  	  <span class="tag is-dark">Complexity</span>
+  	  <span class="tag is-info">1</span>
+  	</div>
+        </div>
+        <div class="control">
+  	<div class="tags has-addons">
+  	  <span class="tag is-dark">Assignee</span>
+  	  <span class="tag is-info">John Ranbo</span>
+  	</div>
+        </div>
+      </div>
             <div class="content"><p>Ticket description goes here.</p>
 </div>
           </td>
