@@ -19,16 +19,16 @@
   <div class="container is-fluid sprint" data-start="{{ page.start }}" data-end="{{ page.end }}" data-complexity="{{ complexity }}">
     <section class="hero">
       <div class="hero-body">
-  <p class="title">
-      {{page.title}}
-  </p>
-  <p class="subtitle">
-    {% if sprint_tickets_size > 0 %}
-    {{ sprint_tickets_size }} ticket{% if sprint_tickets_size > 1 %}s{% endif %}
-    {% else %}
-    No ticket
-    {% endif %}
-  </p>
+	<p class="title">
+	  {{page.title}}
+	</p>
+	<p class="subtitle">
+	  {% if sprint_tickets_size > 0 %}
+	  {{ sprint_tickets_size }} ticket{% if sprint_tickets_size > 1 %}s{% endif %}
+	  {% else %}
+	  No ticket
+	  {% endif %}
+	</p>
       </div>
     </section>
     <nav class="level">
@@ -73,22 +73,22 @@
               data-complexity="{{ ticket.complexity }}"
               data-status="{{ ticket.status }}"
               data-updated="{{ ticket.updated }}">
-      <h5 class="title is-5">{{ ticket.title }}</h5>
-      <h6 class="subtitle is-6"><a href="{{ ticket.url }}">{{ticket.ref}}</a></h6>
-      <div class="field is-grouped is-grouped-multiline">
-        <div class="control">
-  	<div class="tags has-addons">
-  	  <span class="tag is-dark">Complexity</span>
-  	  <span class="tag is-info">{{ ticket.complexity }}</span>
-  	</div>
-        </div>
-        <div class="control">
-  	<div class="tags has-addons">
-  	  <span class="tag is-dark">Assignee</span>
-  	  <span class="tag is-info">{{ ticket.assignee }}</span>
-  	</div>
-        </div>
-      </div>
+	    <h5 class="title is-5">{{ ticket.title }}</h5>
+	    <h6 class="subtitle is-6"><a href="{{ ticket.url }}">{{ticket.ref}}</a></h6>
+	    <div class="field is-grouped is-grouped-multiline">
+              <div class="control">
+  		<div class="tags has-addons">
+  		  <span class="tag is-dark">Complexity</span>
+  		  <span class="tag is-info">{{ ticket.complexity }}</span>
+  		</div>
+              </div>
+              <div class="control">
+  		<div class="tags has-addons">
+  		  <span class="tag is-dark">Assignee</span>
+  		  <span class="tag is-info">{{ ticket.assignee }}</span>
+  		</div>
+              </div>
+	    </div>
             <div class="content">{{ ticket.content | mardownify }}</div>
           </td>
           {% endcapture %}

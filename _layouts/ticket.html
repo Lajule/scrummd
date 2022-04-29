@@ -11,17 +11,17 @@
   <div class="container is-fluid ticket">
     <section class="hero">
       <div class="hero-body">
-  <p class="title">
-      {{page.ref}} - {{page.title}}
-  </p>
-  <p class="subtitle">
-    {% assign sprint = site.pages | find: "title", page.sprint %}
-    {% if sprint %}
-    <a href="{{ sprint.url }}">{{ sprint.title }}</a>
-    {% else %}
-    {{ page.sprint }}
-    {% endif %}
-  </p>
+	<p class="title">
+	  {{page.ref}} - {{page.title}}
+	</p>
+	<p class="subtitle">
+	  {% assign sprint = site.pages | find: "title", page.sprint %}
+	  {% if sprint %}
+	  <a href="{{ sprint.url }}">{{ sprint.title }}</a>
+	  {% else %}
+	  {{ page.sprint }}
+	  {% endif %}
+	</p>
       </div>
     </section>
     <nav class="level">

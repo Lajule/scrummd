@@ -11,18 +11,18 @@
   <div class="container is-fluid sprints">
     <section class="hero">
       <div class="hero-body">
-  <p class="title">
-      {{page.title}}
-  </p>
-  <p class="subtitle">
-    {% assign sprints = 0 %}
-    {% for sprint in site.pages %}
-    {% if sprint.title and sprint.start and sprint.end %}
-    {% assign sprints = sprints | plus: 1 %}
-    {% endif %}
-    {% endfor %}
-      {{ sprints }} sprints
-  </p>
+	<p class="title">
+	  {{page.title}}
+	</p>
+	<p class="subtitle">
+	  {% assign sprints = 0 %}
+	  {% for sprint in site.pages %}
+	  {% if sprint.title and sprint.start and sprint.end %}
+	  {% assign sprints = sprints | plus: 1 %}
+	  {% endif %}
+	  {% endfor %}
+	  {{ sprints }} sprints
+	</p>
       </div>
     </section>
     <div class="content">{{ content }}</div>
@@ -32,41 +32,41 @@
       {% assign sprint_tickets = site.tickets | where: "sprint", sprint.title %}
       {% assign sprint_tickets_size = sprint_tickets | size %}
       <li>
-  <div class="card">
-    <div class="card-content">
-      <div class="content">
-        <p class="title">
-  	<a href="{{ sprint.url }}">{{ sprint.title }}</a>
-        </p>
-        <p class="subtitle">
-  	{% if sprint_tickets_size > 0 %}
-  	{{ sprint_tickets_size }} ticket{% if sprint_tickets_size > 1 %}s{% endif %}
-  	{% else %}
-  	No ticket
-  	{% endif %}
-        </p>
-        <div class="field is-grouped is-grouped-multiline">
-  	<div class="control">
-  	  <div class="tags has-addons">
-  	    <span class="tag is-dark">Start</span>
-  	    <span class="tag is-info">{{ sprint.start | date: "%a, %b %d, %y" }}</span>
-  	  </div>
-  	</div>
-  	<div class="control">
-  	  <div class="tags has-addons">
-  	    <span class="tag is-dark">End</span>
-  	    <span class="tag is-info">{{ sprint.end | date: "%a, %b %d, %y" }}</span>
-  	  </div>
-  	</div>
-        </div>
+	<div class="card">
+	  <div class="card-content">
+	    <div class="content">
+              <p class="title">
+  		<a href="{{ sprint.url }}">{{ sprint.title }}</a>
+              </p>
+              <p class="subtitle">
+  		{% if sprint_tickets_size > 0 %}
+  		{{ sprint_tickets_size }} ticket{% if sprint_tickets_size > 1 %}s{% endif %}
+  		{% else %}
+  		No ticket
+  		{% endif %}
+              </p>
+              <div class="field is-grouped is-grouped-multiline">
+  		<div class="control">
+  		  <div class="tags has-addons">
+  		    <span class="tag is-dark">Start</span>
+  		    <span class="tag is-info">{{ sprint.start | date: "%a, %b %d, %y" }}</span>
+  		  </div>
+  		</div>
+  		<div class="control">
+  		  <div class="tags has-addons">
+  		    <span class="tag is-dark">End</span>
+  		    <span class="tag is-info">{{ sprint.end | date: "%a, %b %d, %y" }}</span>
+  		  </div>
+  		</div>
+              </div>
               <ol>
-  	{% for ticket in sprint_tickets %}
-  	<li><a href="{{ ticket.url }}">{{ ticket.ref }}</a></li>
-  	{% endfor %}
+  		{% for ticket in sprint_tickets %}
+  		<li><a href="{{ ticket.url }}">{{ ticket.ref }}</a></li>
+  		{% endfor %}
               </ol>
-      </div>
-    </div>
-  </div>
+	    </div>
+	  </div>
+	</div>
       </li>
       {% endif %}
       {% endfor %}
