@@ -38,6 +38,15 @@ docker run --rm -p 8080:80 -v $PWD/_site:/usr/share/nginx/html:ro nginx
 
 ##  How to use
 
+Possible ticket status are:
+
+* TO DO
+* DOCUMENTATION
+* DEVELOPEMENT
+* BLOCKED
+* REVIEW
+* DONE
+
 ### How to start a new sprint
 
 ```sh
