@@ -1,142 +1,128 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="utf-8">
-  <title>{{ page.title }} - {{ site.title }}</title>
-  <link rel="stylesheet" href="{{ "/assets/css/bulma.min.css" | relative_url }}">
-  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
-  <script src="{{ "/assets/js/chart.min.js" | relative_url }}"></script>
-  <script src="{{ "/assets/js/sprint.js" | relative_url }}"></script>
-  <script src="{{ "/assets/js/navbar.js" | relative_url }}"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<title>{{ page.title }} - {{ site.title }}</title>
+	<link rel="stylesheet" href="{{ "/assets/css/bulma.min.css" | relative_url }}">
+	<link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+	<script src="{{ "/assets/js/chart.min.js" | relative_url }}"></script>
+	<script src="{{ "/assets/js/sprint.js" | relative_url }}"></script>
+	<script src="{{ "/assets/js/navbar.js" | relative_url }}"></script>
 </head>
 <body>
-  {% assign sprint_tickets = site.tickets | where: "sprint", page.title %}
-  {% assign sprint_tickets_size = sprint_tickets | size %}
-  {% assign complexity = 0 %}
-  {% for ticket in sprint_tickets %}
-  {% assign complexity = complexity | plus: ticket.complexity %}
-  {% endfor %}
-  <div class="container is-fluid sprint" data-start="{{ page.start }}" data-end="{{ page.end }}" data-complexity="{{ complexity }}">
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-	<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar">
-	  <span aria-hidden="true"></span>
-	  <span aria-hidden="true"></span>
-	  <span aria-hidden="true"></span>
-	</a>
-      </div>
-      <div id="navbar" class="navbar-menu">
-	<div class="navbar-start">
-	  <a class="navbar-item" href="/">
-            Sprints
-	  </a>
-	  <a class="navbar-item" href="/backlog.html">
-            Backlog
-	  </a>
-	  <a class="navbar-item is-active" href="{{page.url}}">
-            {{ page.title }}
-	  </a>
-	</div>
-      </div>
-    </nav>
-    <section class="hero">
-      <div class="hero-body">
-	<p class="title">
-	  {{page.title}}
-	</p>
-	<p class="subtitle">
-	  {% if sprint_tickets_size > 0 %}
-	  {{ sprint_tickets_size }} ticket{% if sprint_tickets_size > 1 %}s{% endif %}
-	  {% else %}
-	  No ticket
-	  {% endif %}
-	</p>
-      </div>
-    </section>
-    <nav class="level">
-      <div class="level-item has-text-centered">
-        <div>
-          <p class="heading">Start</p>
-          <p class="title">{{ page.start | date: "%a, %b %d, %y" }}</p>
-        </div>
-      </div>
-      <div class="level-item has-text-centered">
-        <div>
-          <p class="heading">End</p>
-          <p class="title">{{ page.end | date: "%a, %b %d, %y" }}</p>
-        </div>
-      </div>
-      <div class="level-item has-text-centered">
-        <div>
-          <p class="heading">Complexity</p>
-          <p class="title">{{ complexity }}</p>
-        </div>
-      </div>
-    </nav>
-    <div class="content">{{ content }}</div>
-    {% if sprint_tickets_size > 0 %}
-    <div class="table-container">
-      <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-        <thead>
-          <tr>
-            <th>TO DO</th>
-            <th>DOCUMENTATION</th>
-            <th>DEVELOPEMENT</th>
-            <th>BLOCKED</th>
-            <th>REVIEW</th>
-            <th>DONE</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for ticket in sprint_tickets %}
-          {% capture ticket_cell %}
-          <td class="ticket"
-              data-ref="{{ ticket.ref }}"
-              data-complexity="{{ ticket.complexity }}"
-              data-status="{{ ticket.status }}"
-              data-updated="{{ ticket.updated }}">
-	    <h5 class="title is-5">{{ ticket.title }}</h5>
-	    <h6 class="subtitle is-6"><a href="{{ ticket.url }}">{{ticket.ref}}</a></h6>
-	    <div class="field is-grouped is-grouped-multiline">
-              <div class="control">
-  		<div class="tags has-addons">
-  		  <span class="tag is-dark">Complexity</span>
-  		  <span class="tag is-info">{{ ticket.complexity }}</span>
-  		</div>
-              </div>
-              <div class="control">
-  		<div class="tags has-addons">
-  		  <span class="tag is-dark">Assignee</span>
-  		  <span class="tag is-info">{{ ticket.assignee }}</span>
-  		</div>
-              </div>
-	    </div>
-            <div class="content">{{ ticket.content | mardownify }}</div>
-          </td>
-          {% endcapture %}
-          <tr>
-            {% if ticket.status == "TO DO" %}
-            {{ ticket_cell }}<td></td><td></td><td></td><td></td><td></td>
-            {% elsif ticket.status == "DOCUMENTATION" %}
-            <td></td>{{ ticket_cell }}<td></td><td></td><td></td><td></td>
-            {% elsif ticket.status == "DEVELOPEMENT" %}
-            <td></td><td></td>{{ ticket_cell }}<td></td><td></td><td></td>
-            {% elsif ticket.status == "BLOCKED" %}
-            <td></td><td></td><td></td>{{ ticket_cell }}<td></td><td></td>
-            {% elsif ticket.status == "REVIEW" %}
-            <td></td><td></td><td></td><td></td>{{ ticket_cell }}<td></td>
-            {% elsif ticket.status == "DONE" %}
-            <td></td><td></td><td></td><td></td><td></td>{{ ticket_cell }}
-            {% endif %}
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </div>
-    <canvas id="chart"></canvas>
-    {% endif %}
-    {% include footer.html %}
+	{% assign sprint_tickets = site.tickets | where: "sprint", page.title %}
+	{% assign sprint_tickets_size = sprint_tickets | size %}
+	{% assign complexity = 0 %}
+	{% for ticket in sprint_tickets %}
+	{% assign complexity = complexity | plus: ticket.complexity %}
+	{% endfor %}
+	<div class="container is-fluid sprint" data-start="{{ page.start }}" data-end="{{ page.end }}" data-complexity="{{ complexity }}">
+		<nav class="navbar" role="navigation" aria-label="main navigation">
+			{% include navbar-brand.html %}
+			<div id="navbar" class="navbar-menu">
+				<div class="navbar-start">
+					<a class="navbar-item" href="/">Sprints</a>
+					<a class="navbar-item" href="/backlog.html">Backlog</a>
+					<a class="navbar-item is-active" href="{{page.url}}">{{ page.title }}</a>
+				</div>
+			</div>
+		</nav>
+		<section class="hero">
+			<div class="hero-body">
+				<p class="title">{{page.title}}</p>
+				<p class="subtitle">
+					{% if sprint_tickets_size > 0 %}
+					{{ sprint_tickets_size }} ticket{% if sprint_tickets_size > 1 %}s{% endif %}
+					{% else %}
+					No ticket
+					{% endif %}
+				</p>
+			</div>
+		</section>
+		<nav class="level">
+			<div class="level-item has-text-centered">
+				<div>
+					<p class="heading">Start</p>
+					<p class="title">{{ page.start | date: "%a, %b %d, %y" }}</p>
+				</div>
+			</div>
+			<div class="level-item has-text-centered">
+				<div>
+					<p class="heading">End</p>
+					<p class="title">{{ page.end | date: "%a, %b %d, %y" }}</p>
+				</div>
+			</div>
+			<div class="level-item has-text-centered">
+				<div>
+					<p class="heading">Complexity</p>
+					<p class="title">{{ complexity }}</p>
+				</div>
+			</div>
+		</nav>
+		<div class="content">{{ content }}</div>
+		{% if sprint_tickets_size > 0 %}
+		<div class="table-container">
+			<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+				<thead>
+					<tr>
+						<th>TO DO</th>
+						<th>DOCUMENTATION</th>
+						<th>DEVELOPEMENT</th>
+						<th>BLOCKED</th>
+						<th>REVIEW</th>
+						<th>DONE</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for ticket in sprint_tickets %}
+					{% capture ticket_cell %}
+					<td class="ticket"
+							data-ref="{{ ticket.ref }}"
+							data-complexity="{{ ticket.complexity }}"
+							data-status="{{ ticket.status }}"
+							data-updated="{{ ticket.updated }}">
+							<h5 class="title is-5">{{ ticket.title }}</h5>
+							<h6 class="subtitle is-6"><a href="{{ ticket.url }}">{{ticket.ref}}</a></h6>
+							<div class="field is-grouped is-grouped-multiline">
+								<div class="control">
+									<div class="tags has-addons">
+										<span class="tag is-dark">Complexity</span>
+										<span class="tag is-info">{{ ticket.complexity }}</span>
+								</div>
+							</div>
+							<div class="control">
+								<div class="tags has-addons">
+									<span class="tag is-dark">Assignee</span>
+									<span class="tag is-info">{{ ticket.assignee }}</span>
+								</div>
+							</div>
+						</div>
+						<div class="content">{{ ticket.content | mardownify }}</div>
+					</td>
+					{% endcapture %}
+					<tr>
+						{% if ticket.status == "TO DO" %}
+						{{ ticket_cell }}<td></td><td></td><td></td><td></td><td></td>
+						{% elsif ticket.status == "DOCUMENTATION" %}
+						<td></td>{{ ticket_cell }}<td></td><td></td><td></td><td></td>
+						{% elsif ticket.status == "DEVELOPEMENT" %}
+						<td></td><td></td>{{ ticket_cell }}<td></td><td></td><td></td>
+						{% elsif ticket.status == "BLOCKED" %}
+						<td></td><td></td><td></td>{{ ticket_cell }}<td></td><td></td>
+						{% elsif ticket.status == "REVIEW" %}
+						<td></td><td></td><td></td><td></td>{{ ticket_cell }}<td></td>
+						{% elsif ticket.status == "DONE" %}
+						<td></td><td></td><td></td><td></td><td></td>{{ ticket_cell }}
+						{% endif %}
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		<canvas id="chart"></canvas>
+		{% endif %}
+		{% include footer.html %}
  </div>
 </body>
 </html>
