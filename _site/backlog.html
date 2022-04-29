@@ -3,19 +3,13 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
-  <title>Another one - Srummd</title>
+  <title>Backlog - Srummd</title>
   <link rel="stylesheet" href="/assets/css/bulma.min.css">
   <link rel="stylesheet" href="/assets/css/main.css">
-  <script src="/assets/js/chart.min.js"></script>
-  <script src="/assets/js/sprint.js"></script>
   <script src="/assets/js/navbar.js"></script>
 </head>
 <body>
-  
-  
-  
-  
-  <div class="container is-fluid sprint" data-start="2023-01-01" data-end="2023-01-15" data-complexity="0">
+  <div class="container is-fluid sprints">
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
 	<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar">
@@ -29,11 +23,8 @@
 	  <a class="navbar-item" href="/">
             Sprints
 	  </a>
-	  <a class="navbar-item" href="/backlog.html">
+	  <a class="navbar-item is-active" href="/backlog.html">
             Backlog
-	  </a>
-	  <a class="navbar-item is-active" href="/another-one.html">
-            Another one
 	  </a>
 	</div>
       </div>
@@ -41,38 +32,32 @@
     <section class="hero">
       <div class="hero-body">
 	<p class="title">
-	  Another one
+	  Backlog
 	</p>
 	<p class="subtitle">
 	  
-	  No ticket
 	  
+	  
+  	  1 ticket
+  	  
 	</p>
       </div>
     </section>
-    <nav class="level">
-      <div class="level-item has-text-centered">
-        <div>
-          <p class="heading">Start</p>
-          <p class="title">Sun, Jan 01, 23</p>
-        </div>
-      </div>
-      <div class="level-item has-text-centered">
-        <div>
-          <p class="heading">End</p>
-          <p class="title">Sun, Jan 15, 23</p>
-        </div>
-      </div>
-      <div class="level-item has-text-centered">
-        <div>
-          <p class="heading">Complexity</p>
-          <p class="title">0</p>
-        </div>
-      </div>
-    </nav>
-    <div class="content"><p>Sprint description goes here.</p>
+    <div class="content"><p>You can add some content here.</p>
 </div>
-    
+    <div class="table-container">
+      <table class="table is-narrow">
+        <tbody>
+	  
+          <tr>
+	    <td><a href="/tickets/TIC-005.html">TIC-005</a></td>
+	    <td>Ticket title goes here</td>
+	    <td>12</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
     <footer class="footer">
   <div class="content has-text-centered">
     <p>
@@ -81,6 +66,6 @@
   </div>
 </footer>
 
- </div>
+  </div>
 </body>
 </html>

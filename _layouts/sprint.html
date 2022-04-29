@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="{{ "/assets/css/bulma.min.css" | relative_url }}">
   <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
   <script src="{{ "/assets/js/chart.min.js" | relative_url }}"></script>
-  <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/sprint.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/navbar.js" | relative_url }}"></script>
 </head>
 <body>
   {% assign sprint_tickets = site.tickets | where: "sprint", page.title %}
@@ -17,6 +18,28 @@
   {% assign complexity = complexity | plus: ticket.complexity %}
   {% endfor %}
   <div class="container is-fluid sprint" data-start="{{ page.start }}" data-end="{{ page.end }}" data-complexity="{{ complexity }}">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+	<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar">
+	  <span aria-hidden="true"></span>
+	  <span aria-hidden="true"></span>
+	  <span aria-hidden="true"></span>
+	</a>
+      </div>
+      <div id="navbar" class="navbar-menu">
+	<div class="navbar-start">
+	  <a class="navbar-item" href="/">
+            Sprints
+	  </a>
+	  <a class="navbar-item" href="/backlog.html">
+            Backlog
+	  </a>
+	  <a class="navbar-item is-active" href="{{page.url}}">
+            {{ page.title }}
+	  </a>
+	</div>
+      </div>
+    </nav>
     <section class="hero">
       <div class="hero-body">
 	<p class="title">

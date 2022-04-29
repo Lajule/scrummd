@@ -68,4 +68,3 @@ window.addEventListener('DOMContentLoaded', function(event) {
 
     sprint.dispatchEvent(new CustomEvent('brundown', { brundown }));
 });
-
