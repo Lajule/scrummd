@@ -2,6 +2,8 @@
   <img src="https://github.com/Lajule/scrummd/blob/master/assets/img/logo.png" alt="Scrummd: Hand-craft your scrum board !">
 </p>
 
+[![Jekyll site CI](https://github.com/Lajule/scrummd/actions/workflows/jekyll.yml/badge.svg)](https://github.com/Lajule/scrummd/actions/workflows/jekyll.yml)
+
 <p align="center">Hand-craft your scrum board !</p>
 
 <p align="center"><img src="https://github.com/Lajule/scrummd/blob/master/board.png"></p>
