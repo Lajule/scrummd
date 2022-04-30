@@ -1,11 +1,14 @@
-# Scrummd
+<p align="center">
+  <img src="https://github.com/Lajule/scrummd/blob/master/assets/img/logo.png" alt="Scrummd: Hand-craft your scrum board !">
+</p>
 
-Hand-craft your scrum board !
+<p align="center">Hand-craft your scrum board !</p>
 
-![board](https://github.com/Lajule/scrummd/blob/master/board.png)
-![burndown](https://github.com/Lajule/scrummd/blob/master/burndown.png)
+<p align="center"><img src="https://github.com/Lajule/scrummd/blob/master/board.png"></p>
 
-Scrummd is a [Jekyll][1] skeleton to build a scrum boards. Create sprints and tickets with simple markdown files, generate the website and it's done !
+<p align="center"><img src="https://github.com/Lajule/scrummd/blob/master/burndown.png"></p>
+
+Scrummd is a [Jekyll][1] skeleton to build a scrum boards. Create simple markdown files, generate the website and it's done !
 
 ## Build
 
