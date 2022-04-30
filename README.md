@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/Lajule/scrummd/blob/master/assets/img/logo.png" alt="Scrummd: Hand-craft your scrum board !" width="226">
+  <img src="https://github.com/Lajule/scrummd/blob/master/assets/img/logo.png" alt="Scrummd: Hand-craft your scrum board !" width="198">
 </p>
 
 <p align="center">Hand-craft your scrum board !</p>
