@@ -1,5 +1,5 @@
 url: "scrummd.org"
-baseurl: ""
+baseurl: "http://julien.rouzieres.fr/scrummd/"
 title: "Srummd"
 collections:
   tickets:
