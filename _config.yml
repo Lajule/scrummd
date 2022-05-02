@@ -1,5 +1,3 @@
-url: ""
-baseurl: "http://julien.rouzieres.fr/scrummd/"
 title: "Srummd"
 collections:
   tickets:
