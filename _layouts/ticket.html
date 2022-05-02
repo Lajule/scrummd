@@ -4,9 +4,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<title>{{ page.ref }} - {{ site.title }}</title>
-	<link rel="stylesheet" href="{{ "/assets/css/bulma.min.css" | relative_url }}">
-	<link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
-	<script src="{{ "/assets/js/navbar.js" | relative_url }}"></script>
+	<link rel="stylesheet" href="{{ "/assets/css/bulma.min.css" | absolute_url }}">
+	<link rel="stylesheet" href="{{ "/assets/css/main.css" | absolute_url }}">
+	<script src="{{ "/assets/js/navbar.js" | absolute_url }}"></script>
 </head>
 <body>
 	<div class="container is-fluid ticket">
@@ -14,9 +14,9 @@
 			{% include navbar-brand.html %}
 			<div id="navbar" class="navbar-menu">
 				<div class="navbar-start">
-				<a class="navbar-item" href="/">Sprints</a>
-				<a class="navbar-item" href="/backlog.html">Backlog</a>
-				<a class="navbar-item is-active" href="{{page.url}}">{{ page.ref }}</a>
+				<a class="navbar-item" href="{{ "/" | absolute_url }}">Sprints</a>
+				<a class="navbar-item" href="{{ "/backlog.html" | absolute_url }}">Backlog</a>
+				<a class="navbar-item is-active" href="{{ page.url | absolute_url }}">{{ page.ref }}</a>
 			</div>
 			</div>
 		</nav>
@@ -26,7 +26,7 @@
 				<p class="subtitle">
 					{% assign sprint = site.pages | find: "title", page.sprint %}
 					{% if sprint %}
-					<a href="{{ sprint.url }}">{{ sprint.title }}</a>
+					<a href="{{ sprint.url | absolute_url }}">{{ sprint.title }}</a>
 					{% else %}
 					{{ page.sprint }}
 					{% endif %}
