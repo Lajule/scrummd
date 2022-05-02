@@ -8,3 +8,5 @@ exclude:
   - README.md
   - board.png
   - burndown.png
+
+theme: jekyll-theme-cayman
