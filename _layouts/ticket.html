@@ -3,7 +3,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
-	<title>{{ page.ref }} - {{ site.title }}</title>
+	<title>{{ page.ref }} &mdash; {{ site.title }}</title>
 	<link rel="icon" href="{{ "/favicon.ico" | relative_url }}">
 	<link rel="stylesheet" href="{{ "/assets/css/bulma.min.css" | relative_url }}">
 	<link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
@@ -23,7 +23,7 @@
 		</nav>
 		<section class="hero">
 			<div class="hero-body">
-				<p class="title">{{page.ref}} - {{page.title}}</p>
+				<p class="title">{{page.ref}} &mdash; {{page.title}}</p>
 				<p class="subtitle">
 					{% assign sprint = site.pages | find: "title", page.sprint %}
 					{% if sprint %}

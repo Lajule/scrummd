@@ -3,7 +3,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
-	<title>{{ page.title }} - {{ site.title }}</title>
+	<title>{{ page.title }} &mdash; {{ site.title }}</title>
 	<link rel="icon" href="{{ "/favicon.ico" | relative_url }}">
 	<link rel="stylesheet" href="{{ "/assets/css/bulma.min.css" | relative_url }}">
 	<link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
@@ -79,26 +79,16 @@
 					{% for ticket in sprint_tickets %}
 					{% capture ticket_cell %}
 					<td class="ticket"
-							data-ref="{{ ticket.ref }}"
-							data-complexity="{{ ticket.complexity }}"
-							data-status="{{ ticket.status }}"
-							data-updated="{{ ticket.updated }}">
-							<h5 class="title is-5">{{ ticket.title }}</h5>
-							<h6 class="subtitle is-6"><a href="{{ ticket.url | relative_url }}">{{ticket.ref}}</a></h6>
-							<div class="field is-grouped is-grouped-multiline">
-								<div class="control">
-									<div class="tags has-addons">
-										<span class="tag is-dark">Complexity</span>
-										<span class="tag is-info">{{ ticket.complexity }}</span>
-								</div>
-							</div>
-							<div class="control">
-								<div class="tags has-addons">
-									<span class="tag is-dark">Assignee</span>
-									<span class="tag is-info">{{ ticket.assignee }}</span>
-								</div>
-							</div>
-						</div>
+						data-ref="{{ ticket.ref }}"
+						data-complexity="{{ ticket.complexity }}"
+						data-status="{{ ticket.status }}"
+						data-updated="{{ ticket.updated }}">
+						<h5 class="title is-5">{{ ticket.title }}</h5>
+						<h6 class="subtitle is-6">
+							<a href="{{ ticket.url | relative_url }}">{{ticket.ref}}</a>
+						  	<br>
+						  	{{ ticket.assignee }} ({{ ticket.complexity }})
+						</h6>
 						<div class="content">{{ ticket.content | mardownify }}</div>
 					</td>
 					{% endcapture %}
