@@ -4,10 +4,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<title>{{ page.title }} - {{ site.title }}</title>
-	<link rel="icon" href="{{ "/favicon.ico" | absolute_url }}">
-	<link rel="stylesheet" href="{{ "/assets/css/bulma.min.css" | absolute_url }}">
-	<link rel="stylesheet" href="{{ "/assets/css/main.css" | absolute_url }}">
-	<script src="{{ "/assets/js/navbar.js" | absolute_url }}"></script>
+	<link rel="icon" href="{{ "/favicon.ico" | relative_url }}">
+	<link rel="stylesheet" href="{{ "/assets/css/bulma.min.css" | relative_url }}">
+	<link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+	<script src="{{ "/assets/js/navbar.js" | relative_url }}"></script>
 </head>
 <body>
 	<div class="container is-fluid sprints">
@@ -15,8 +15,8 @@
 			{% include navbar-brand.html %}
 			<div id="navbar" class="navbar-menu">
 				<div class="navbar-start">
-					<a class="navbar-item is-active" href="{{ "/" | absolute_url }}">Sprints</a>
-					<a class="navbar-item" href="{{ "/backlog.html" | absolute_url }}">Backlog</a>
+					<a class="navbar-item is-active" href="{{ "/" | relative_url }}">Sprints</a>
+					<a class="navbar-item" href="{{ "/backlog.html" | relative_url }}">Backlog</a>
 				</div>
 			</div>
 		</nav>
@@ -47,7 +47,7 @@
 					{% assign sprint_tickets = site.tickets | where: "sprint", sprint.title %}
 					{% assign sprint_tickets_size = sprint_tickets | size %}
 					<tr>
-						<td><a href="{{ sprint.url | absolute_url }}">{{ sprint.title }}</td>
+						<td><a href="{{ sprint.url | relative_url }}">{{ sprint.title }}</td>
 						<td>{{ sprint.start | date: "%a, %b %d, %y" }}</td>
 						<td>{{ sprint.end | date: "%a, %b %d, %y" }}</td>
 						<td>
