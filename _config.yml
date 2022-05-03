@@ -1,3 +1,4 @@
+baseurl: "scrummd"
 title: "Srummd"
 collections:
   tickets:
