@@ -5,5 +5,4 @@ collections:
     output: true
 exclude:
   - README.md
-  - board.png
-  - burndown.png
+  - scrummd.png

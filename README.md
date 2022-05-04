@@ -4,13 +4,9 @@
   <a href="https://github.com/Lajule/scrummd/actions/workflows/jekyll.yml"><img src="https://github.com/Lajule/scrummd/actions/workflows/jekyll.yml/badge.svg" alt="Build Status"></a>
 </p>
 
-Hand-craft your scrum board,
+Hand-craft your scrum board and your brundown chart !
 
-![board](https://github.com/Lajule/scrummd/blob/master/board.png)
- 
- And your brundown chart !
- 
-![burndown](https://github.com/Lajule/scrummd/blob/master/burndown.png)
+![scrummd](https://github.com/Lajule/scrummd/blob/master/scrummd.png)
 
 Scrummd is a [Jekyll][1] skeleton to build a scrum boards. Create simple markdown files, generate the website and it's done !
 
