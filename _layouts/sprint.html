@@ -64,7 +64,7 @@
 		<div class="content">{{ content }}</div>
 		{% if sprint_tickets_size > 0 %}
 		<div class="table-container">
-			<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+			<table class="table is-bordered is-striped is-hoverable is-fullwidth">
 				<thead>
 					<tr>
 						<th>TO DO</th>
@@ -87,7 +87,9 @@
 						<h6 class="subtitle is-6">
 							<a href="{{ ticket.url | relative_url }}">{{ticket.ref}}</a>
 						  	<br>
-						  	{{ ticket.assignee }} ({{ ticket.complexity }})
+						  	<span class="tag is-rounded is-info">{{ ticket.complexity }}</span>
+							<br>
+							{{ ticket.assignee }}
 						</h6>
 						<div class="content">{{ ticket.content | mardownify }}</div>
 					</td>
