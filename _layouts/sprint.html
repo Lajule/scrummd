@@ -87,7 +87,13 @@
 						<h6 class="subtitle is-6">
 							<a href="{{ ticket.url | relative_url }}">{{ticket.ref}}</a>
 						  	<br>
-						  	<span class="tag is-rounded is-info">{{ ticket.complexity }}</span>
+							{% if ticket.complexity > 5 %}
+							<span class="tag is-rounded is-danger">{{ ticket.complexity }}</span>
+							{% elsif ticket.complexity > 2 %}
+							<span class="tag is-rounded is-warning">{{ ticket.complexity }}</span>
+							{% else %}
+							<span class="tag is-rounded is-info">{{ ticket.complexity }}</span>
+							{% endif %}
 							<br>
 							{{ ticket.assignee }}
 						</h6>
