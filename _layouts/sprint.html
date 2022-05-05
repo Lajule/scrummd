@@ -26,6 +26,13 @@
 					<a class="navbar-item" href="{{ "/" | relative_url }}">Sprints</a>
 					<a class="navbar-item" href="{{ "/backlog.html" | relative_url }}">Backlog</a>
 					<a class="navbar-item is-active" href="{{ page.url | relative_url }}">{{ page.title }}</a>
+					<div class="navbar-item has-dropdown is-hoverable">
+						<a class="navbar-link">More</a>
+						<div class="navbar-dropdown">
+							<a class="navbar-item" href="#board">Board</a>
+							<a class="navbar-item" href="#chart">Burndown</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</nav>
@@ -63,7 +70,7 @@
 		</nav>
 		<div class="content">{{ content }}</div>
 		{% if sprint_tickets_size > 0 %}
-		<div class="table-container">
+		<div id="board" class="table-container">
 			<table class="table is-bordered is-striped is-hoverable is-fullwidth">
 				<thead>
 					<tr>

@@ -1,5 +1,5 @@
 baseurl: "scrummd"
-title: "Srummd"
+title: "Scrummd"
 collections:
   tickets:
     output: true
