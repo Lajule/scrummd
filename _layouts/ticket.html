@@ -59,12 +59,14 @@
 					<p class="title">{{ page.created | date_to_string }}</p>
 				</div>
 			</div>
+			{% if page.updated %}
 			<div class="level-item has-text-centered">
 				<div>
 					<p class="heading">Updated</p>
 					<p class="title">{{ page.updated | date_to_string }}</p>
 				</div>
 			</div>
+			{% endif %}
 		</nav>
 		<div class="content">{{ content }}</div>
 		{% include footer.html %}
