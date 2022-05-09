@@ -55,7 +55,7 @@ Possible ticket status are:
 ```sh
 echo "---
 layout: sprint
-title: "First sprint"
+title: First sprint
 from: 2022-12-01
 to: 2022-12-15
 ---
@@ -72,10 +72,9 @@ ref: TIC-003
 title: Ticket title goes here
 complexity: 8
 assignee: John McLane
-sprint: "First sprint"
-status: "TODO"
+sprint: First sprint
+status: TODO
 created: 2022-11-15
-updated: 2022-12-06
 ---
 Ticket description goes here.
 " >_tickets/TIC-003.md
