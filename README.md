@@ -55,12 +55,12 @@ Possible ticket status are:
 ```sh
 echo "---
 layout: sprint
-title: First sprint
+title: Sprint title goes here
 from: 2022-12-01
 to: 2022-12-15
 ---
 Sprint description goes here.
-" >first-sprint.md
+" >sprint.md
 ```
 
 ### How to add a ticket
@@ -68,16 +68,17 @@ Sprint description goes here.
 ```sh
 echo "---
 layout: ticket
-ref: TIC-003
+ref: TIC-001
 title: Ticket title goes here
 complexity: 8
 assignee: John McLane
-sprint: First sprint
+sprint:
 status: TODO
 created: 2022-11-15
+updated:
 ---
 Ticket description goes here.
-" >_tickets/TIC-003.md
+" >_tickets/TIC-001.md
 ```
 
 [1]: https://jekyllrb.com/
