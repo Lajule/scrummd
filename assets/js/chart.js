@@ -23,15 +23,13 @@
 				data: [],
 				borderColor: 'hsl(171, 100%, 41%)',
 				backgroundColor: 'hsl(171, 100%, 41%)'
-			},
-			{
+		}, {
 				label: "Completed",
 				data: [],
 				stepped: true,
 				borderColor: 'hsl(204, 86%, 53%)',
 				backgroundColor: 'hsl(204, 86%, 53%)'
-			}
-		]
+		}]
 	};
 
 	const end = new Date(sprint.dataset.end);
@@ -58,13 +56,11 @@
 		});
 	}
 
-	const brundown = new Chart(chart.getContext('2d'), {
+	new Chart(chart.getContext('2d'), {
 		type: 'line',
 		data: chartData,
 		options: {
 			responsive: true
 		}
 	});
-
-	sprint.dispatchEvent(new CustomEvent('brundown', { brundown }));
 })();
