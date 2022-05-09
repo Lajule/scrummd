@@ -7,7 +7,6 @@
 	<link rel="icon" href="{{ "/favicon.ico" | relative_url }}">
 	<link rel="stylesheet" href="{{ "/assets/css/bulma.min.css" | relative_url }}">
 	<link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
-	<script src="{{ "/assets/js/navbar.js" | relative_url }}"></script>
 </head>
 <body>
 	<div class="container is-fluid ticket">
@@ -15,11 +14,12 @@
 			{% include navbar-brand.html %}
 			<div id="navbar" class="navbar-menu">
 				<div class="navbar-start">
-				<a class="navbar-item" href="{{ "/" | relative_url }}">Sprints</a>
-				<a class="navbar-item" href="{{ "/backlog.html" | relative_url }}">Backlog</a>
-				<a class="navbar-item is-active" href="{{ page.url | relative_url }}">{{ page.ref }}</a>
+					<a class="navbar-item" href="{{ "/" | relative_url }}">Sprints</a>
+					<a class="navbar-item" href="{{ "/backlog.html" | relative_url }}">Backlog</a>
+					<a class="navbar-item is-active" href="{{ page.url | relative_url }}">{{ page.ref }}</a>
+				</div>
 			</div>
-			</div>
+			<script src="{{ "/assets/js/navbar-burger.js" | relative_url }}"></script>
 		</nav>
 		<section class="hero">
 			<div class="hero-body">

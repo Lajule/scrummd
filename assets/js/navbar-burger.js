@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function (event) {
+(function() {
 	const burgers = Array.from(document.querySelectorAll('.navbar-burger'));
 
 	burgers.forEach(burger => {
@@ -9,4 +9,4 @@ document.addEventListener('DOMContentLoaded', function (event) {
 			target.classList.toggle('is-active');
 		});
 	});
-});
+})();

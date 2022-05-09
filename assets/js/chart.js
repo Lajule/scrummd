@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', function (event) {
+(function() {
 	const sprint = document.querySelector('.sprint');
 	const tickets = sprint.querySelectorAll('.ticket');
 	const chart = document.getElementById('chart');
@@ -67,4 +67,4 @@ window.addEventListener('DOMContentLoaded', function (event) {
 	});
 
 	sprint.dispatchEvent(new CustomEvent('brundown', { brundown }));
-});
+})();

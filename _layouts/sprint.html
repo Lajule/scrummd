@@ -8,8 +8,6 @@
 	<link rel="stylesheet" href="{{ "/assets/css/bulma.min.css" | relative_url }}">
 	<link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
 	<script src="{{ "/assets/js/chart.min.js" | relative_url }}"></script>
-	<script src="{{ "/assets/js/sprint.js" | relative_url }}"></script>
-	<script src="{{ "/assets/js/navbar.js" | relative_url }}"></script>
 </head>
 <body>
 	{% assign sprint_tickets = site.tickets | where: "sprint", page.title %}
@@ -35,6 +33,7 @@
 					</div>
 				</div>
 			</div>
+			<script src="{{ "/assets/js/navbar-burger.js" | relative_url }}"></script>
 		</nav>
 		<section class="hero">
 			<div class="hero-body">
@@ -127,8 +126,9 @@
 			</table>
 		</div>
 		<canvas id="chart"></canvas>
+		<script src="{{ "/assets/js/chart.js" | relative_url }}"></script>
 		{% endif %}
 		{% include footer.html %}
- </div>
+	</div>
 </body>
 </html>
