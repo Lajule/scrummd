@@ -56,13 +56,13 @@
 			<div class="level-item has-text-centered">
 				<div>
 					<p class="heading">Created</p>
-					<p class="title">{{ page.created | date: "%a, %b %d, %y" }}</p>
+					<p class="title">{{ page.created | date_to_string }}</p>
 				</div>
 			</div>
 			<div class="level-item has-text-centered">
 				<div>
 					<p class="heading">Updated</p>
-					<p class="title">{{ page.updated | date: "%a, %b %d, %y" }}</p>
+					<p class="title">{{ page.updated | date_to_string }}</p>
 				</div>
 			</div>
 		</nav>

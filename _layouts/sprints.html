@@ -48,8 +48,8 @@
 					{% assign sprint_tickets_size = sprint_tickets | size %}
 					<tr>
 						<td><a href="{{ sprint.url | relative_url }}">{{ sprint.title }}</td>
-						<td>{{ sprint.start | date: "%a, %b %d, %y" }}</td>
-						<td>{{ sprint.end | date: "%a, %b %d, %y" }}</td>
+						<td>{{ sprint.start | date_to_string }}</td>
+						<td>{{ sprint.end | date_to_string }}</td>
 						<td>
 							{% if sprint_tickets_size > 0 %}
 							{{ sprint_tickets_size }} ticket{% if sprint_tickets_size > 1 %}s{% endif %}
