@@ -24,7 +24,7 @@
 			<div class="hero-body">
 				<p class="title">{{page.title}}</p>
 				<p class="subtitle">
-					{% assign tickets = site.tickets | where_exp: "ticket", "ticket.sprint == nil" %}
+					{% assign tickets = site.tickets | where: "sprint", nil %}
 					{% assign tickets_size = tickets | size %}
 					{% if tickets_size > 0 %}
 					{{ tickets_size }} ticket{% if tickets_size > 1 %}s{% endif %}
