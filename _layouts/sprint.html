@@ -102,6 +102,8 @@
 							{% else %}
 							<span class="tag is-rounded is-info">{{ ticket.complexity }}</span>
 							{% endif %}
+							<br>
+							<span class="is-size-7 has-text-grey">{{ ticket.updated | date: "%a, %b %d, %y" }}</span>
 						</h6>
 						<div class="content">{{ ticket.content | mardownify }}</div>
 					</td>

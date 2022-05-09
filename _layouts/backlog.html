@@ -24,7 +24,7 @@
 			<div class="hero-body">
 				<p class="title">{{page.title}}</p>
 				<p class="subtitle">
-					{% assign tickets = site.tickets | where: "sprint", "" %}
+					{% assign tickets = site.tickets | where_exp: "ticket", "ticket.sprint == nil" %}
 					{% assign tickets_size = tickets | size %}
 					{% if tickets_size > 0 %}
 					{{ tickets_size }} ticket{% if tickets_size > 1 %}s{% endif %}
@@ -42,7 +42,15 @@
 					<tr>
 						<td><a href="{{ ticket.url | relative_url }}">{{ ticket.ref }}</a></td>
 						<td>{{ ticket.title }}</td>
-						<td>{{ ticket.complexity }}</td>
+						<td>
+							{% if ticket.complexity > 5 %}
+							<span class="tag is-rounded is-danger">{{ ticket.complexity }}</span>
+							{% elsif ticket.complexity > 2 %}
+							<span class="tag is-rounded is-warning">{{ ticket.complexity }}</span>
+							{% else %}
+							<span class="tag is-rounded is-info">{{ ticket.complexity }}</span>
+							{% endif %}
+						</td>
 					</tr>
 					{% endfor %}
 				</tbody>
