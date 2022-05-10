@@ -78,7 +78,7 @@ created: 2022-11-15
 updated:
 ---
 Ticket description goes here.
-" >_tickets/TIC-001.md
+" >_tickets/ticket.md
 ```
 
 [1]: https://jekyllrb.com/
