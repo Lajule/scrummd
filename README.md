@@ -33,7 +33,7 @@ Visit `http://localhost:4000` to see your scrum board in live.
 
 ## Deployment
 
-Just copy the content of the `_site` directory to the document root of you favorite web server. Following command can be used to start an [nginx][2] container:
+Just copy the content of the `_site` directory to the document root of your favorite web server. Following command can be used to start an [nginx][2] container:
 
 ```sh
 docker run --rm -p 8080:80 -v "${PWD}/_site:/usr/share/nginx/html:ro" nginx
