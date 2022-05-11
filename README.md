@@ -41,6 +41,10 @@ docker run --rm -p 8080:80 -v "${PWD}/_site:/usr/share/nginx/html:ro" nginx
 
 ##  How to use
 
+Date format:
+
+2022-12-01
+
 Possible ticket status are:
 
 * TO DO
