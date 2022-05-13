@@ -41,9 +41,28 @@ docker run --rm -p 8080:80 -v "${PWD}/_site:/usr/share/nginx/html:ro" nginx
 
 ##  How to use
 
-Date format:
+Sprints have following properties :
 
-2022-12-01
+Property | Description
+---------|------------
+title | Name of the sprint
+from | First day of the sprint
+to | Last day of the sprint
+
+Tickets have following properties :
+
+Property | Description
+---------|------------
+ref | TIC-001
+title | Ticket title goes here
+complexity | 8
+assignee | John McLane
+sprint | 
+status | TODO
+created | 2022-11-15
+updated | 
+
+All dates must be defined using following format: `2022-12-17`
 
 Possible ticket status are:
 
