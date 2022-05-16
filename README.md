@@ -54,13 +54,13 @@ Tickets have following properties :
 Property | Description
 ---------|------------
 ref | TIC-001
-title | Ticket title goes here
-complexity | 8
-assignee | John McLane
-sprint | 
-status | TODO
-created | 2022-11-15
-updated | 
+title | Name of the ticket
+complexity | Complexity of the ticket
+assignee | People in charge of the ticket
+sprint | Name of the sprint
+status | Status of the ticket
+created | Creation date of the ticket
+updated | Modification date of the ticket
 
 All dates must be defined using following format: `2022-12-17`
 
