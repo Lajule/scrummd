@@ -7,6 +7,7 @@
 	<link rel="icon" href="{{ "/favicon.ico" | relative_url }}">
 	<link rel="stylesheet" href="{{ "/assets/css/bulma.min.css" | relative_url }}">
 	<link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+	<script src="{{ "/assets/js/lunr.min.js" | relative_url }}"></script>
 </head>
 <body>
 	<div class="container is-fluid sprints">
@@ -18,20 +19,20 @@
 					<a class="navbar-item" href="{{ "/backlog.html" | relative_url }}">Backlog</a>
 				</div>
 			</div>
-			<script src="{{ "/assets/js/navbar-burger.js" | relative_url }}"></script>
+			{% include navbar-burger.html %}
 		</nav>
 		<section class="hero">
 			<div class="hero-body">
 				<p class="title">{{page.title}}</p>
 				<p class="subtitle">
-					{% assign sprints = 0 %}
+					{% assign sprints_size = 0 %}
 					{% for sprint in site.pages %}
 					{% if sprint.title and sprint.start and sprint.end %}
-					{% assign sprints = sprints | plus: 1 %}
+					{% assign sprints_size = sprints_size | plus: 1 %}
 					{% endif %}
 					{% endfor %}
-					{% if sprints > 0 %}
-					{{ sprints }} sprint{% if sprints > 1 %}s{% endif %}
+					{% if sprints_size > 0 %}
+					{{ sprints_size }} sprint{% if sprints_size > 1 %}s{% endif %}
 					{% else %}
 					No sprint
 					{% endif %}
@@ -39,15 +40,18 @@
 			</div>
 		</section>
 		<div class="content">{{ content }}</div>
+		{% if sprints_size > 0 %}
+		{% include search.html %}
 		<div class="table-container">
 			<table class="table">
 				<tbody>
+					{% assign sprint_id = 0 %}
 					{% for sprint in site.pages %}
 					{% if sprint.title and sprint.start and sprint.end %}
 					{% assign sprint_tickets = site.tickets | where: "sprint", sprint.title %}
 					{% assign sprint_tickets_size = sprint_tickets | size %}
 					<tr>
-						<td><a href="{{ sprint.url | relative_url }}">{{ sprint.title }}</td>
+						<td class="sprint-title" data-id="{{ sprint_id }}"><a href="{{ sprint.url | relative_url }}">{{ sprint.title }}</td>
 						<td>{{ sprint.start | date_to_string }}</td>
 						<td>{{ sprint.end | date_to_string }}</td>
 						<td>
@@ -58,11 +62,38 @@
 							{% endif %}
 						</td>
 					</tr>
+					{% assign sprint_id = sprint_id | plus: 1 %}
 					{% endif %}
 					{% endfor %}
 				</tbody>
 			</table>
 		</div>
+		<script>
+			(function() {
+				const sprints = document.querySelector('.sprints');
+				const search = document.getElementById('search');
+				const titles = sprints.querySelectorAll('.sprint-title');
+
+				const idx = lunr(function () {
+					this.field('title');
+					titles.forEach(title => {
+						this.add({
+    						'title': title.textContent,
+							'id': title.dataset.id
+						});
+					});
+				});
+
+				search.addEventListener('change', function() {
+					const results = idx.search(search.value);
+					titles.forEach(title => {
+						const found = results.some(result => result.ref === title.dataset.id);
+						title.parentNode.style.display = found ? 'table-row' : 'none';
+					});
+				}, false);
+			})();
+		</script>
+		{% endif %}
 		{% include footer.html %}
 	</div>
 </body>

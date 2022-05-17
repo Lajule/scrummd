@@ -7,6 +7,7 @@
 	<link rel="icon" href="{{ "/favicon.ico" | relative_url }}">
 	<link rel="stylesheet" href="{{ "/assets/css/bulma.min.css" | relative_url }}">
 	<link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+	<script src="{{ "/assets/js/lunr.min.js" | relative_url }}"></script>
 	<script src="{{ "/assets/js/chart.min.js" | relative_url }}"></script>
 </head>
 <body>
@@ -33,7 +34,7 @@
 					</div>
 				</div>
 			</div>
-			<script src="{{ "/assets/js/navbar-burger.js" | relative_url }}"></script>
+			{% include navbar-burger.html %}
 		</nav>
 		<section class="hero">
 			<div class="hero-body">
@@ -69,6 +70,7 @@
 		</nav>
 		<div class="content">{{ content }}</div>
 		{% if sprint_tickets_size > 0 %}
+		{% include search.html %}
 		<div id="board" class="table-container">
 			<table class="table is-bordered is-striped is-hoverable is-fullwidth">
 				<thead>
@@ -93,7 +95,7 @@
 						<h6 class="subtitle is-6">
 							<a href="{{ ticket.url | relative_url }}">{{ticket.ref}}</a>
 							<br>
-							<span class="assignee">{{ ticket.assignee }}</span>
+							<span class="is-italic assignee">{{ ticket.assignee }}</span>
 						  	<br>
 							{% if ticket.complexity > 5 %}
 							<span class="tag is-rounded is-danger">{{ ticket.complexity }}</span>
@@ -128,7 +130,97 @@
 			</table>
 		</div>
 		<canvas id="chart"></canvas>
-		<script src="{{ "/assets/js/chart.js" | relative_url }}"></script>
+		<script>
+			(function() {
+				const sprint = document.querySelector('.sprint');
+				const search = document.getElementById('search');
+				const tickets = sprint.querySelectorAll('.ticket');
+				const chart = document.getElementById('chart');
+
+				const idx = lunr(function () {
+					this.field('title');
+  					this.field('assignee');
+  					this.field('content');
+					tickets.forEach(ticket => {
+						this.add({
+    						'title': ticket.querySelector('.title').textContent,
+							'assignee': ticket.querySelector('.assignee').textContent,
+							'content': ticket.querySelector('.content').textContent,
+							'id': ticket.dataset.ref
+						});
+					});
+				});
+
+				search.addEventListener('change', function() {
+					const results = idx.search(search.value);
+					tickets.forEach(ticket => {
+						const found = results.some(result => result.ref === ticket.dataset.ref);
+						ticket.parentNode.style.display = found ? 'table-row' : 'none';
+					});
+				}, false);
+
+				let complexity = parseInt(sprint.dataset.complexity, 10);
+
+				const doneTicketsMap = Array.from(tickets).reduce((acc, curr) => {
+					if (curr.dataset.status === 'DONE') {
+						const updated = new Date(curr.dataset.updated).toLocaleDateString();
+						if (!acc[updated]) {
+							acc[updated] = 0;
+						}
+						acc[updated] += parseInt(curr.dataset.complexity, 10);
+					}
+					return acc;
+				}, {})
+
+				const chartData = {
+					labels: [],
+					datasets: [{
+							label: "Ideal",
+							data: [],
+							borderColor: 'hsl(171, 100%, 41%)',
+							backgroundColor: 'hsl(171, 100%, 41%)'
+					}, {
+							label: "Completed",
+							data: [],
+							stepped: true,
+							borderColor: 'hsl(204, 86%, 53%)',
+							backgroundColor: 'hsl(204, 86%, 53%)'
+					}]
+				};
+
+				const end = new Date(sprint.dataset.end);
+				for (const start = new Date(sprint.dataset.start); start <= end; start.setDate(start.getDate() + 1)) {
+					chartData.labels.push(start.toLocaleDateString());
+				}
+
+				chartData.datasets[0].data = [{
+					x: chartData.labels[0],
+					y: complexity
+				}, {
+					x: chartData.labels[chartData.labels.length - 1],
+					y: 0
+				}];
+
+				for (let i = 0; i < chartData.labels.length; ++i) {
+					const day = chartData.labels[i];
+					if (doneTicketsMap[day]) {
+						complexity -= doneTicketsMap[day];
+					}
+					chartData.datasets[1].data.push({
+						x: chartData.labels[i],
+						y: complexity
+					});
+				}
+
+				new Chart(chart.getContext('2d'), {
+					type: 'line',
+					data: chartData,
+					options: {
+						responsive: true
+					}
+				});
+			})();
+		</script>
 		{% endif %}
 		{% include footer.html %}
 	</div>

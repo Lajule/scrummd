@@ -7,9 +7,10 @@
 	<link rel="icon" href="{{ "/favicon.ico" | relative_url }}">
 	<link rel="stylesheet" href="{{ "/assets/css/bulma.min.css" | relative_url }}">
 	<link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+	<script src="{{ "/assets/js/lunr.min.js" | relative_url }}"></script>
 </head>
 <body>
-	<div class="container is-fluid sprints">
+	<div class="container is-fluid backlog">
 		<nav class="navbar" role="navigation" aria-label="main navigation">
 			{% include navbar-brand.html %}
 			<div id="navbar" class="navbar-menu">
@@ -18,7 +19,7 @@
 					<a class="navbar-item is-active" href="{{ "/backlog.html" | relative_url }}">Backlog</a>
 				</div>
 			</div>
-			<script src="{{ "/assets/js/navbar-burger.js" | relative_url }}"></script>
+			{% include navbar-burger.html %}
 		</nav>
 		<section class="hero">
 			<div class="hero-body">
@@ -35,13 +36,15 @@
 			</div>
 		</section>
 		<div class="content">{{ content }}</div>
+		{% if tickets_size > 0 %}
+		{% include search.html %}
 		<div class="table-container">
 			<table class="table">
 				<tbody>
 					{% for ticket in tickets %}
 					<tr>
 						<td><a href="{{ ticket.url | relative_url }}">{{ ticket.ref }}</a></td>
-						<td>{{ ticket.title }}</td>
+						<td class="tickets-title" data-ref="{{ ticket.ref }}">{{ ticket.title }}</td>
 						<td>
 							{% if ticket.complexity > 5 %}
 							<span class="tag is-rounded is-danger">{{ ticket.complexity }}</span>
@@ -56,6 +59,34 @@
 				</tbody>
 			</table>
 		</div>
+		<script>
+			(function() {
+				const backlog = document.querySelector('.backlog');
+				const search = document.getElementById('search');
+				const titles = backlog.querySelectorAll('.tickets-title');
+
+				const idx = lunr(function () {
+					this.field('ref');
+					this.field('title');
+					titles.forEach(title => {
+						this.add({
+							'ref': title.dataset.ref,
+    						'title': title.textContent,
+							'id': title.dataset.ref
+						});
+					});
+				});
+
+				search.addEventListener('change', function() {
+					const results = idx.search(search.value);
+					titles.forEach(title => {
+						const found = results.some(result => result.ref === title.dataset.ref);
+						title.parentNode.style.display = found ? 'table-row' : 'none';
+					});
+				}, false);
+			})();
+		</script>
+		{% endif %}
 		{% include footer.html %}
 	</div>
 </body>
