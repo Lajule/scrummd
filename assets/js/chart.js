@@ -6,7 +6,7 @@
 	let complexity = parseInt(sprint.dataset.complexity, 10);
 
 	const doneTicketsMap = Array.from(tickets).reduce((acc, curr) => {
-		if (curr.dataset.status == 'DONE') {
+		if (curr.dataset.status === 'DONE') {
 			const updated = new Date(curr.dataset.updated).toLocaleDateString();
 			if (!acc[updated]) {
 				acc[updated] = 0;

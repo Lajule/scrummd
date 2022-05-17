@@ -7,7 +7,6 @@
 	<link rel="icon" href="{{ "/favicon.ico" | relative_url }}">
 	<link rel="stylesheet" href="{{ "/assets/css/bulma.min.css" | relative_url }}">
 	<link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
-	<script src="{{ "/assets/js/lunr.min.js" | relative_url }}"></script>
 	<script src="{{ "/assets/js/chart.min.js" | relative_url }}"></script>
 </head>
 <body>
@@ -70,7 +69,6 @@
 		</nav>
 		<div class="content">{{ content }}</div>
 		{% if sprint_tickets_size > 0 %}
-		<input id="search" class="input" type="text" placeholder="Search">
 		<div id="board" class="table-container">
 			<table class="table is-bordered is-striped is-hoverable is-fullwidth">
 				<thead>
@@ -95,7 +93,7 @@
 						<h6 class="subtitle is-6">
 							<a href="{{ ticket.url | relative_url }}">{{ticket.ref}}</a>
 							<br>
-							{{ ticket.assignee }}
+							<span class="assignee">{{ ticket.assignee }}</span>
 						  	<br>
 							{% if ticket.complexity > 5 %}
 							<span class="tag is-rounded is-danger">{{ ticket.complexity }}</span>
@@ -129,7 +127,6 @@
 				</tbody>
 			</table>
 		</div>
-		<script src="{{ "/assets/js/search-sprint.js" | relative_url }}"></script>
 		<canvas id="chart"></canvas>
 		<script src="{{ "/assets/js/chart.js" | relative_url }}"></script>
 		{% endif %}
