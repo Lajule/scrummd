@@ -41,6 +41,8 @@ docker run --rm -p 8080:80 -v "${PWD}/_site:/usr/share/nginx/html:ro" nginx
 
 ##  How to use
 
+You can create two types of pages sprints or tickets.
+
 Sprints have following properties :
 
 Property | Description
