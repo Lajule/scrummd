@@ -41,9 +41,9 @@ docker run --rm -p 8080:80 -v "${PWD}/_site:/usr/share/nginx/html:ro" nginx
 
 ##  How to use
 
-You can create two types of pages sprints or tickets.
+You can create two types of pages: **Sprints** or **Tickets**.
 
-Sprints have following properties :
+Sprints are site pages and have following properties :
 
 Property | Description
 ---------|------------
@@ -51,7 +51,7 @@ title | Name of the sprint
 from | First day of the sprint
 to | Last day of the sprint
 
-Tickets have following properties :
+Tickets are contained in `_tickets` collection and have following properties :
 
 Property | Description
 ---------|------------
