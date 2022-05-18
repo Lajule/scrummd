@@ -1,0 +1,7 @@
+{% if include.complexity > 5 %}
+<span class="tag is-rounded is-danger">{{ include.complexity }}</span>
+{% elsif include.complexity > 2 %}
+<span class="tag is-rounded is-warning">{{ include.complexity }}</span>
+{% else %}
+<span class="tag is-rounded is-info">{{ include.complexity }}</span>
+{% endif %}

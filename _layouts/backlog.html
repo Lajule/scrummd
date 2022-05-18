@@ -45,15 +45,7 @@
 					<tr>
 						<td><a href="{{ ticket.url | relative_url }}">{{ ticket.ref }}</a></td>
 						<td class="ticket-title" data-ref="{{ ticket.ref }}">{{ ticket.title }}</td>
-						<td>
-							{% if ticket.complexity > 5 %}
-							<span class="tag is-rounded is-danger">{{ ticket.complexity }}</span>
-							{% elsif ticket.complexity > 2 %}
-							<span class="tag is-rounded is-warning">{{ ticket.complexity }}</span>
-							{% else %}
-							<span class="tag is-rounded is-info">{{ ticket.complexity }}</span>
-							{% endif %}
-						</td>
+						<td>{% include complexity.html complexity=ticket.complexity %}</td>
 					</tr>
 					{% endfor %}
 				</tbody>

@@ -97,13 +97,7 @@
 							<br>
 							<span class="is-italic assignee">{{ ticket.assignee }}</span>
 						  	<br>
-							{% if ticket.complexity > 5 %}
-							<span class="tag is-rounded is-danger">{{ ticket.complexity }}</span>
-							{% elsif ticket.complexity > 2 %}
-							<span class="tag is-rounded is-warning">{{ ticket.complexity }}</span>
-							{% else %}
-							<span class="tag is-rounded is-info">{{ ticket.complexity }}</span>
-							{% endif %}
+							{% include complexity.html complexity=ticket.complexity %}
 							<br>
 							<span class="is-size-7 has-text-grey">{{ ticket.updated | date_to_string }}</span>
 						</h6>
