@@ -138,12 +138,14 @@
 				const chart = document.getElementById('chart');
 
 				const idx = lunr(function () {
+					this.field('ref');
 					this.field('title');
   					this.field('assignee');
   					this.field('content');
 					tickets.forEach(ticket => {
 						this.add({
-    						'title': ticket.querySelector('.title').textContent,
+							'ref': ticket.dataset.ref,
+							'title': ticket.querySelector('.title').textContent,
 							'assignee': ticket.querySelector('.assignee').textContent,
 							'content': ticket.querySelector('.content').textContent,
 							'id': ticket.dataset.ref

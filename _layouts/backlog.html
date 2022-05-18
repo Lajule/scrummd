@@ -44,7 +44,7 @@
 					{% for ticket in tickets %}
 					<tr>
 						<td><a href="{{ ticket.url | relative_url }}">{{ ticket.ref }}</a></td>
-						<td class="tickets-title" data-ref="{{ ticket.ref }}">{{ ticket.title }}</td>
+						<td class="ticket-title" data-ref="{{ ticket.ref }}">{{ ticket.title }}</td>
 						<td>
 							{% if ticket.complexity > 5 %}
 							<span class="tag is-rounded is-danger">{{ ticket.complexity }}</span>
@@ -63,7 +63,7 @@
 			(function() {
 				const backlog = document.querySelector('.backlog');
 				const search = document.getElementById('search');
-				const titles = backlog.querySelectorAll('.tickets-title');
+				const titles = backlog.querySelectorAll('.ticket-title');
 
 				const idx = lunr(function () {
 					this.field('ref');
@@ -71,7 +71,7 @@
 					titles.forEach(title => {
 						this.add({
 							'ref': title.dataset.ref,
-    						'title': title.textContent,
+							'title': title.textContent,
 							'id': title.dataset.ref
 						});
 					});
