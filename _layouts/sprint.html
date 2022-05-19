@@ -11,10 +11,10 @@
 	<script src="{{ "/assets/js/chart.min.js" | relative_url }}"></script>
 </head>
 <body>
-	{% assign sprint_tickets = site.tickets | where: "sprint", page.title %}
-	{% assign sprint_tickets_size = sprint_tickets | size %}
+	{% assign tickets = site.tickets | where: "sprint", page.title %}
+	{% assign tickets_size = tickets | size %}
 	{% assign complexity = 0 %}
-	{% for ticket in sprint_tickets %}
+	{% for ticket in tickets %}
 	{% assign complexity = complexity | plus: ticket.complexity %}
 	{% endfor %}
 	<div class="container is-fluid sprint" data-start="{{ page.start }}" data-end="{{ page.end }}" data-complexity="{{ complexity }}">
@@ -38,14 +38,8 @@
 		</nav>
 		<section class="hero">
 			<div class="hero-body">
-				<p class="title">{{page.title}}</p>
-				<p class="subtitle">
-					{% if sprint_tickets_size > 0 %}
-					{{ sprint_tickets_size }} ticket{% if sprint_tickets_size > 1 %}s{% endif %}
-					{% else %}
-					No ticket
-					{% endif %}
-				</p>
+				<p class="title">{{ page.title }}</p>
+				<p class="subtitle">{% include pluralize.html size=tickets_size word="ticket" %}				</p>
 			</div>
 		</section>
 		<nav class="level">
@@ -69,7 +63,7 @@
 			</div>
 		</nav>
 		<div class="content">{{ content }}</div>
-		{% if sprint_tickets_size > 0 %}
+		{% if tickets_size > 0 %}
 		{% include search.html %}
 		<div id="board" class="table-container">
 			<table class="table is-bordered is-striped is-hoverable is-fullwidth">
@@ -84,9 +78,10 @@
 					</tr>
 				</thead>
 				<tbody>
-					{% for ticket in sprint_tickets %}
+					{% for ticket in tickets %}
 					{% capture ticket_cell %}
-					<td class="ticket"
+					<td class="sprint-ticket"
+						data-url="{{ ticket.url }}"
 						data-ref="{{ ticket.ref }}"
 						data-complexity="{{ ticket.complexity }}"
 						data-status="{{ ticket.status }}"
@@ -128,7 +123,7 @@
 			(function() {
 				const sprint = document.querySelector('.sprint');
 				const search = document.getElementById('search');
-				const tickets = sprint.querySelectorAll('.ticket');
+				const tickets = sprint.querySelectorAll('.sprint-ticket');
 				const chart = document.getElementById('chart');
 
 				const idx = lunr(function () {
@@ -142,7 +137,7 @@
 							'title': ticket.querySelector('.title').textContent,
 							'assignee': ticket.querySelector('.assignee').textContent,
 							'content': ticket.querySelector('.content').textContent,
-							'id': ticket.dataset.ref
+							'id': ticket.dataset.url
 						});
 					});
 				});
@@ -150,7 +145,7 @@
 				search.addEventListener('change', function() {
 					const results = idx.search(search.value);
 					tickets.forEach(ticket => {
-						const found = results.some(result => result.ref === ticket.dataset.ref);
+						const found = results.some(result => result.ref === ticket.dataset.url);
 						ticket.parentNode.style.display = found ? 'table-row' : 'none';
 					});
 				}, false);

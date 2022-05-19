@@ -10,6 +10,8 @@
 	<script src="{{ "/assets/js/lunr.min.js" | relative_url }}"></script>
 </head>
 <body>
+    	{% assign tickets = site.tickets | where_exp: "ticket", "ticket.sprint == nil" %}
+	{% assign tickets_size = tickets | size %}
 	<div class="container is-fluid backlog">
 		<nav class="navbar" role="navigation" aria-label="main navigation">
 			{% include navbar-brand.html %}
@@ -23,16 +25,8 @@
 		</nav>
 		<section class="hero">
 			<div class="hero-body">
-				<p class="title">{{page.title}}</p>
-				<p class="subtitle">
-					{% assign tickets = site.tickets | where_exp: "ticket", "ticket.sprint == nil" %}
-					{% assign tickets_size = tickets | size %}
-					{% if tickets_size > 0 %}
-					{{ tickets_size }} ticket{% if tickets_size > 1 %}s{% endif %}
-					{% else %}
-					No ticket
-					{% endif %}
-				</p>
+				<p class="title">{{ page.title }}</p>
+				<p class="subtitle">{% include pluralize.html size=tickets_size word="ticket" %}</p>
 			</div>
 		</section>
 		<div class="content">{{ content }}</div>
@@ -44,7 +38,9 @@
 					{% for ticket in tickets %}
 					<tr>
 						<td><a href="{{ ticket.url | relative_url }}">{{ ticket.ref }}</a></td>
-						<td class="ticket-title" data-ref="{{ ticket.ref }}">{{ ticket.title }}</td>
+						<td class="backlog-ticket"
+						    data-url="{{ ticket.url }}
+						    data-ref="{{ ticket.ref }}">{{ ticket.title }}</td>
 						<td>{% include complexity.html complexity=ticket.complexity %}</td>
 					</tr>
 					{% endfor %}
@@ -55,25 +51,25 @@
 			(function() {
 				const backlog = document.querySelector('.backlog');
 				const search = document.getElementById('search');
-				const titles = backlog.querySelectorAll('.ticket-title');
+				const tickets = backlog.querySelectorAll('.backlog-ticket');
 
 				const idx = lunr(function () {
 					this.field('ref');
 					this.field('title');
-					titles.forEach(title => {
+					tickets.forEach(ticket => {
 						this.add({
-							'ref': title.dataset.ref,
-							'title': title.textContent,
-							'id': title.dataset.ref
+							'ref': ticket.dataset.ref,
+							'title': ticket.textContent,
+							'id': ticket.dataset.url
 						});
 					});
 				});
 
 				search.addEventListener('change', function() {
 					const results = idx.search(search.value);
-					titles.forEach(title => {
-						const found = results.some(result => result.ref === title.dataset.ref);
-						title.parentNode.style.display = found ? 'table-row' : 'none';
+					tickets.forEach(ticket => {
+						const found = results.some(result => result.ref === ticket.dataset.url);
+						ticket.parentNode.style.display = found ? 'table-row' : 'none';
 					});
 				}, false);
 			})();

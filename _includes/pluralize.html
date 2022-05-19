@@ -1,0 +1,5 @@
+{% if include.size > 0 %}
+{{ include.size }} {{ include.word }}{% if include.size > 1 %}s{% endif %}
+{% else %}
+No {{ include.word }}
+{% endif %}

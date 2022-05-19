@@ -10,6 +10,12 @@
 	<script src="{{ "/assets/js/lunr.min.js" | relative_url }}"></script>
 </head>
 <body>
+	{% assign sprints_size = 0 %}
+	{% for sprint in site.pages %}
+	{% if sprint.title and sprint.start and sprint.end %}
+	{% assign sprints_size = sprints_size | plus: 1 %}
+	{% endif %}
+	{% endfor %}
 	<div class="container is-fluid sprints">
 		<nav class="navbar" role="navigation" aria-label="main navigation">
 			{% include navbar-brand.html %}
@@ -23,20 +29,8 @@
 		</nav>
 		<section class="hero">
 			<div class="hero-body">
-				<p class="title">{{page.title}}</p>
-				<p class="subtitle">
-					{% assign sprints_size = 0 %}
-					{% for sprint in site.pages %}
-					{% if sprint.title and sprint.start and sprint.end %}
-					{% assign sprints_size = sprints_size | plus: 1 %}
-					{% endif %}
-					{% endfor %}
-					{% if sprints_size > 0 %}
-					{{ sprints_size }} sprint{% if sprints_size > 1 %}s{% endif %}
-					{% else %}
-					No sprint
-					{% endif %}
-				</p>
+				<p class="title">{{ page.title }}</p>
+				<p class="subtitle">{% include pluralize.html size=sprints_size word="sprint" %}</p>
 			</div>
 		</section>
 		<div class="content">{{ content }}</div>
@@ -45,24 +39,18 @@
 		<div class="table-container">
 			<table class="table">
 				<tbody>
-					{% assign sprint_id = 0 %}
 					{% for sprint in site.pages %}
 					{% if sprint.title and sprint.start and sprint.end %}
-					{% assign sprint_tickets = site.tickets | where: "sprint", sprint.title %}
-					{% assign sprint_tickets_size = sprint_tickets | size %}
+					{% assign tickets = site.tickets | where: "sprint", sprint.title %}
+					{% assign tickets_size = tickets | size %}
 					<tr>
-						<td class="sprint-title" data-id="{{ sprint_id }}"><a href="{{ sprint.url | relative_url }}">{{ sprint.title }}</td>
+						<td class="sprints-ticket" data-url="{{ sprint.url }}">
+							<a href="{{ sprint.url | relative_url }}">{{ sprint.title }}</a>
+						</td>
 						<td>{{ sprint.start | date_to_string }}</td>
 						<td>{{ sprint.end | date_to_string }}</td>
-						<td>
-							{% if sprint_tickets_size > 0 %}
-							{{ sprint_tickets_size }} ticket{% if sprint_tickets_size > 1 %}s{% endif %}
-							{% else %}
-							No ticket
-							{% endif %}
-						</td>
+						<td>{% include pluralize.html size=tickets_size word="ticket" %}</td>
 					</tr>
-					{% assign sprint_id = sprint_id | plus: 1 %}
 					{% endif %}
 					{% endfor %}
 				</tbody>
@@ -72,23 +60,23 @@
 			(function() {
 				const sprints = document.querySelector('.sprints');
 				const search = document.getElementById('search');
-				const titles = sprints.querySelectorAll('.sprint-title');
+				const tickets = sprints.querySelectorAll('.sprints-ticket');
 
 				const idx = lunr(function () {
 					this.field('title');
-					titles.forEach(title => {
+					tickets.forEach(ticket => {
 						this.add({
-    						'title': title.textContent,
-							'id': title.dataset.id
+							'title': ticket.textContent,
+							'id': ticket.dataset.url
 						});
 					});
 				});
 
 				search.addEventListener('change', function() {
 					const results = idx.search(search.value);
-					titles.forEach(title => {
-						const found = results.some(result => result.ref === title.dataset.id);
-						title.parentNode.style.display = found ? 'table-row' : 'none';
+					tickets.forEach(ticket => {
+						const found = results.some(result => result.ref === ticket.dataset.url);
+						ticket.parentNode.style.display = found ? 'table-row' : 'none';
 					});
 				}, false);
 			})();
