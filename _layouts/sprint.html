@@ -29,7 +29,7 @@
 						<a class="navbar-link">More</a>
 						<div class="navbar-dropdown">
 							<a class="navbar-item" href="#board">Board</a>
-							<a class="navbar-item" href="#chart">Burndown</a>
+							<a class="navbar-item" href="#chart">Burndown chart</a>
 						</div>
 					</div>
 				</div>
@@ -39,7 +39,7 @@
 		<section class="hero">
 			<div class="hero-body">
 				<p class="title">{{ page.title }}</p>
-				<p class="subtitle">{% include pluralize.html size=tickets_size word="ticket" %}				</p>
+				<p class="subtitle">{% include pluralize.html size=tickets_size word="ticket" %}</p>
 			</div>
 		</section>
 		<nav class="level">
@@ -82,20 +82,21 @@
 					{% capture ticket_cell %}
 					<td class="sprint-ticket"
 						data-url="{{ ticket.url }}"
-						data-ref="{{ ticket.ref }}"
 						data-complexity="{{ ticket.complexity }}"
 						data-status="{{ ticket.status }}"
 						data-updated="{{ ticket.updated }}">
-						<h5 class="title is-5">{{ ticket.title }}</h5>
-						<h6 class="subtitle is-6">
-							<a href="{{ ticket.url | relative_url }}">{{ticket.ref}}</a>
+						<p class="title is-size-5">{{ ticket.title }}</p>
+						<p class="subtitle is-size-6">
+							<a href="{{ ticket.url | relative_url }}">{{ ticket.ref }}</a>
 							<br>
-							<span class="is-italic assignee">{{ ticket.assignee }}</span>
-						  	<br>
+							<span class="is-italic">{{ ticket.assignee }}</span>
+							<br>
 							{% include complexity.html complexity=ticket.complexity %}
+							{% if ticket.updated %}
 							<br>
-							<span class="is-size-7 has-text-grey">{{ ticket.updated | date_to_string }}</span>
-						</h6>
+							<span class="has-text-grey">{{ ticket.updated | date_to_string }}</span>
+							{% endif %}
+						</p>
 						<div class="content">{{ ticket.content | mardownify }}</div>
 					</td>
 					{% endcapture %}
@@ -127,15 +128,14 @@
 				const chart = document.getElementById('chart');
 
 				const idx = lunr(function () {
-					this.field('ref');
 					this.field('title');
-  					this.field('assignee');
+					this.field('subtitle');
   					this.field('content');
 					tickets.forEach(ticket => {
+						console.log(ticket.querySelector('.subtitle').textContent);
 						this.add({
-							'ref': ticket.dataset.ref,
 							'title': ticket.querySelector('.title').textContent,
-							'assignee': ticket.querySelector('.assignee').textContent,
+							'subtitle': ticket.querySelector('.subtitle').textContent,
 							'content': ticket.querySelector('.content').textContent,
 							'id': ticket.dataset.url
 						});

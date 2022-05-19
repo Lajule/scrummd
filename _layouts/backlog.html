@@ -10,7 +10,7 @@
 	<script src="{{ "/assets/js/lunr.min.js" | relative_url }}"></script>
 </head>
 <body>
-    	{% assign tickets = site.tickets | where_exp: "ticket", "ticket.sprint == nil" %}
+    {% assign tickets = site.tickets | where_exp: "ticket", "ticket.sprint == nil" %}
 	{% assign tickets_size = tickets | size %}
 	<div class="container is-fluid backlog">
 		<nav class="navbar" role="navigation" aria-label="main navigation">
@@ -38,9 +38,7 @@
 					{% for ticket in tickets %}
 					<tr>
 						<td><a href="{{ ticket.url | relative_url }}">{{ ticket.ref }}</a></td>
-						<td class="backlog-ticket"
-						    data-url="{{ ticket.url }}
-						    data-ref="{{ ticket.ref }}">{{ ticket.title }}</td>
+						<td class="backlog-ticket" data-url="{{ ticket.url }}">{{ ticket.title }}</td>
 						<td>{% include complexity.html complexity=ticket.complexity %}</td>
 					</tr>
 					{% endfor %}
@@ -58,7 +56,6 @@
 					this.field('title');
 					tickets.forEach(ticket => {
 						this.add({
-							'ref': ticket.dataset.ref,
 							'title': ticket.textContent,
 							'id': ticket.dataset.url
 						});
