@@ -87,15 +87,10 @@
 						data-updated="{{ ticket.updated }}">
 						<p class="title is-size-5">{{ ticket.title }}</p>
 						<p class="subtitle is-size-6">
-							<a href="{{ ticket.url | relative_url }}">{{ ticket.ref }}</a>
-							<br>
-							<span class="is-italic">{{ ticket.assignee }}</span>
-							<br>
-							{% include complexity.html complexity=ticket.complexity %}
-							{% if ticket.updated %}
-							<br>
+							<a href="{{ ticket.url | relative_url }}">{{ ticket.url }}</a><br>
+							<span class="is-italic">{{ ticket.assignee }}</span><br>
+							{% include complexity.html complexity=ticket.complexity %}<br>
 							<span class="has-text-grey">{{ ticket.updated | date_to_string }}</span>
-							{% endif %}
 						</p>
 						<div class="content">{{ ticket.content | mardownify }}</div>
 					</td>
@@ -128,16 +123,11 @@
 				const chart = document.getElementById('chart');
 
 				const idx = lunr(function () {
-					this.field('title');
-					this.field('subtitle');
-  					this.field('content');
+					this.field('text');
 					tickets.forEach(ticket => {
-						console.log(ticket.querySelector('.subtitle').textContent);
 						this.add({
-							'title': ticket.querySelector('.title').textContent,
-							'subtitle': ticket.querySelector('.subtitle').textContent,
-							'content': ticket.querySelector('.content').textContent,
-							'id': ticket.dataset.url
+							'id': ticket.dataset.url,
+							'text': ticket.textContent
 						});
 					});
 				});

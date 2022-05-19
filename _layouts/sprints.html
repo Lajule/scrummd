@@ -43,10 +43,9 @@
 					{% if sprint.title and sprint.start and sprint.end %}
 					{% assign tickets = site.tickets | where: "sprint", sprint.title %}
 					{% assign tickets_size = tickets | size %}
-					<tr>
-						<td class="sprints-ticket" data-url="{{ sprint.url }}">
-							<a href="{{ sprint.url | relative_url }}">{{ sprint.title }}</a>
-						</td>
+					<tr class="sprints-ticket"
+						data-url="{{ sprint.url }}">
+						<td><a href="{{ sprint.url | relative_url }}">{{ sprint.title }}</a></td>
 						<td>{{ sprint.start | date_to_string }}</td>
 						<td>{{ sprint.end | date_to_string }}</td>
 						<td>{% include pluralize.html size=tickets_size word="ticket" %}</td>
@@ -63,11 +62,11 @@
 				const tickets = sprints.querySelectorAll('.sprints-ticket');
 
 				const idx = lunr(function () {
-					this.field('title');
+					this.field('text');
 					tickets.forEach(ticket => {
 						this.add({
-							'title': ticket.textContent,
-							'id': ticket.dataset.url
+							'id': ticket.dataset.url,
+							'text': ticket.textContent
 						});
 					});
 				});
@@ -76,7 +75,7 @@
 					const results = idx.search(search.value);
 					tickets.forEach(ticket => {
 						const found = results.some(result => result.ref === ticket.dataset.url);
-						ticket.parentNode.style.display = found ? 'table-row' : 'none';
+						ticket.style.display = found ? 'table-row' : 'none';
 					});
 				}, false);
 			})();

@@ -36,10 +36,15 @@
 			<table class="table">
 				<tbody>
 					{% for ticket in tickets %}
-					<tr>
-						<td><a href="{{ ticket.url | relative_url }}">{{ ticket.ref }}</a></td>
-						<td class="backlog-ticket" data-url="{{ ticket.url }}">{{ ticket.title }}</td>
+					<tr class="backlog-ticket"
+						data-url="{{ ticket.url }}">
+						<td><a href="{{ ticket.url | relative_url }}">{{ ticket.url }}</a></td>
+						<td>{{ ticket.title }}</td>
 						<td>{% include complexity.html complexity=ticket.complexity %}</td>
+						<td>{{ ticket.assignee }}</td>
+						<td>{{ ticket.status }}</td>
+						<td>{{ ticket.created | date_to_string }}</td>
+						<td>{{ ticket.updated | date_to_string }}</td>
 					</tr>
 					{% endfor %}
 				</tbody>
@@ -52,12 +57,11 @@
 				const tickets = backlog.querySelectorAll('.backlog-ticket');
 
 				const idx = lunr(function () {
-					this.field('ref');
-					this.field('title');
+					this.field('text');
 					tickets.forEach(ticket => {
 						this.add({
-							'title': ticket.textContent,
-							'id': ticket.dataset.url
+							'id': ticket.dataset.url,
+							'text': ticket.textContent
 						});
 					});
 				});
@@ -66,7 +70,7 @@
 					const results = idx.search(search.value);
 					tickets.forEach(ticket => {
 						const found = results.some(result => result.ref === ticket.dataset.url);
-						ticket.parentNode.style.display = found ? 'table-row' : 'none';
+						ticket.style.display = found ? 'table-row' : 'none';
 					});
 				}, false);
 			})();

@@ -55,7 +55,6 @@ Tickets are contained in `_tickets` collection and have following properties :
 
 Property | Description
 ---------|------------
-ref | TIC-001
 title | Name of the ticket
 complexity | Complexity of the ticket
 assignee | People in charge of the ticket
@@ -93,7 +92,6 @@ Sprint description goes here.
 ```sh
 echo "---
 layout: ticket
-ref: TIC-001
 title: Ticket title goes here
 complexity: 8
 assignee: John McLane
