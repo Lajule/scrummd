@@ -25,8 +25,10 @@
 			<div class="hero-body">
 				<p class="title">{{ page.title }}</p>
 				<p class="subtitle">
-					{% assign sprint = site.pages | find: "title", page.sprint %}
-					{% if sprint %}
+					{% assign sprints = site.pages | where: "title", page.sprint %}
+				  	{% assign sprints_size = sprints | size %}
+					{% if sprints_size > 0 %}
+					{% assign sprint = sprints | first %}
 					<a href="{{ sprint.url | relative_url }}">{{ sprint.title }}</a>
 					{% else %}
 					{{ page.sprint }}
