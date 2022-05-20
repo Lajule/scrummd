@@ -3,7 +3,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
-	<title>{{ page.title }} &mdash; {{ site.title }}</title>
+	<title>{{ page.title }} | {{ site.title }}</title>
 	<link rel="icon" href="{{ "/favicon.ico" | relative_url }}">
 	<link rel="stylesheet" href="{{ "/assets/css/bulma.min.css" | relative_url }}">
 	<link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
@@ -85,14 +85,17 @@
 						data-complexity="{{ ticket.complexity }}"
 						data-status="{{ ticket.status }}"
 						data-updated="{{ ticket.updated }}">
+						<div class="is-pulled-right">{% include complexity.html complexity=ticket.complexity %}</div>
 						<p class="title is-size-5">{{ ticket.title }}</p>
-						<p class="subtitle is-size-6">
-							<a href="{{ ticket.url | relative_url }}">{{ ticket.url }}</a><br>
-							<span class="is-italic">{{ ticket.assignee }}</span><br>
-							{% include complexity.html complexity=ticket.complexity %}<br>
-							<span class="has-text-grey">{{ ticket.updated | date_to_string }}</span>
-						</p>
+						<p class="subtitle is-size-6"><a href="{{ ticket.url | relative_url }}">{{ ticket.url }}</a></p>
 						<div class="content">{{ ticket.content | mardownify }}</div>
+						<div class="is-pulled-right">
+							{% if ticket.updated %}
+							{{ ticket.assignee }} &mdash; {{ ticket.updated | date_to_string }}
+							{% else %}
+							{{ ticket.assignee }} &mdash; {{ ticket.created | date_to_string }}
+							{% endif %}
+						</div>
 					</td>
 					{% endcapture %}
 					<tr>
