@@ -13,10 +13,11 @@
 	{% assign tickets = "" | split: "," %}
 	{% for ticket in site.tickets %}
 	{% if ticket.sprint %}
-	{% assign sprint = site.pages | find: "title", ticket.sprint %}
-	{% unless sprint %}
+	{% assign sprints = site.pages | where: "title", ticket.sprint %}
+	{% assign sprints_size = sprints | size %}
+	{% if sprints_size == 0 %}
 	{% assign tickets = tickets | push: ticket %}
-	{% endunless %}
+	{% endif %}
 	{% else %}
 	{% assign tickets = tickets | push: ticket %}
 	{% endif %}
