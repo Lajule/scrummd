@@ -10,7 +10,17 @@
 	<script src="{{ "/assets/js/lunr.min.js" | relative_url }}"></script>
 </head>
 <body>
-    {% assign tickets = site.tickets | where_exp: "ticket", "ticket.sprint == nil" %}
+	{% assign tickets = "" | split: "," %}
+	{% for ticket in site.tickets %}
+	{% if ticket.sprint %}
+	{% assign sprint = site.pages | find: "title", ticket.sprint %}
+	{% unless sprint %}
+	{% assign tickets = tickets | push: ticket %}
+	{% endunless %}
+	{% else %}
+	{% assign tickets = tickets | push: ticket %}
+	{% endif %}
+	{% endfor %}
 	{% assign tickets_size = tickets | size %}
 	<div class="container is-fluid backlog">
 		<nav class="navbar" role="navigation" aria-label="main navigation">
