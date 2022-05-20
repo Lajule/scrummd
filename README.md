@@ -4,6 +4,8 @@
   <a href="https://github.com/Lajule/scrummd/actions/workflows/jekyll.yml"><img src="https://github.com/Lajule/scrummd/actions/workflows/jekyll.yml/badge.svg" alt="Build Status"></a>
 </p>
 
+<p align="center"><em>Check it out at <a href="http://julien.rouzieres.fr/scrummd/">http://julien.rouzieres.fr/scrummd/</a>.</em></p>
+
 Hand-craft your scrum board and your brundown chart !
 
 ![scrummd](https://github.com/Lajule/scrummd/blob/master/scrummd.png)
