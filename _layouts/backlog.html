@@ -15,9 +15,7 @@
 	{% if ticket.sprint %}
 	{% assign sprints = site.pages | where: "title", ticket.sprint %}
 	{% assign sprints_size = sprints | size %}
-	{% if sprints_size == 0 %}
-	{% assign tickets = tickets | push: ticket %}
-	{% endif %}
+	{% if sprints_size == 0 %}{% assign tickets = tickets | push: ticket %}{% endif %}
 	{% else %}
 	{% assign tickets = tickets | push: ticket %}
 	{% endif %}

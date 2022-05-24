@@ -90,11 +90,7 @@
 						<p class="subtitle is-size-6"><a href="{{ ticket.url | relative_url }}">{{ ticket.url }}</a></p>
 						<div class="content">{{ ticket.content | mardownify }}</div>
 						<div class="is-pulled-right">
-							{% if ticket.updated %}
-							{{ ticket.assignee }} &mdash; {{ ticket.updated | date_to_string }}
-							{% else %}
-							{{ ticket.assignee }} &mdash; {{ ticket.created | date_to_string }}
-							{% endif %}
+							{{ ticket.assignee }} &mdash; {{ ticket.updated | default: ticket.created | date_to_string }}
 						</div>
 					</td>
 					{% endcapture %}

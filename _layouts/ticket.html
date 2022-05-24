@@ -45,12 +45,14 @@
 					<p class="title">{{ page.complexity }}</p>
 				</div>
 			</div>
+			{% if page.assignee %}
 			<div class="level-item has-text-centered">
 				<div>
 					<p class="heading">Assignee</p>
 					<p class="title">{{ page.assignee }}</p>
 				</div>
 			</div>
+			{% endif %}
 			<div class="level-item has-text-centered">
 				<div>
 					<p class="heading">Status</p>
