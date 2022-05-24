@@ -65,16 +65,18 @@ status | Status of the ticket
 created | Creation date of the ticket
 updated | Modification date of the ticket
 
-All dates must be defined using following format: `2022-12-17`
-
-Possible ticket status are:
-
-* TO DO
-* DOCUMENTATION
-* DEVELOPEMENT
-* BLOCKED
-* REVIEW
-* DONE
+> All dates must be defined using following format: `2022-12-17`
+>
+> Possible ticket status are:
+>
+> * TO DO
+> * DOCUMENTATION
+> * DEVELOPEMENT
+> * BLOCKED
+> * REVIEW
+> * DONE
+>
+> To update the brundown chart you have to modify the status to `DONE`
 
 ### How to start a new sprint
 
@@ -99,7 +101,7 @@ complexity: 8
 assignee: John McLane
 sprint:
 status: TODO
-created: 2022-11-15
+created: $(date +%Y-%m-%d)
 updated:
 ---
 Ticket description goes here.
