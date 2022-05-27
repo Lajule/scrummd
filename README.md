@@ -65,7 +65,7 @@ status | Status of the ticket
 created | Creation date of the ticket
 updated | Modification date of the ticket
 
-> All dates must be defined using following format: `2022-12-17`
+> All dates must be defined using following format: `2022-12-17`.
 >
 > Possible ticket status are:
 >
@@ -76,7 +76,7 @@ updated | Modification date of the ticket
 > * REVIEW
 > * DONE
 >
-> To update the brundown chart you have to modify the status to `DONE`
+> To update the brundown chart you have to modify the status of the ticket to `DONE`.
 
 ### How to start a new sprint
 
